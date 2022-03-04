@@ -7,14 +7,23 @@ import {BrowserRouter as Router} from 'react-router-dom';
 
 const App = () => {
   const [token, setToken] = useState<string|null>("");
+  const [userId, setUserId] = useState('');
 
-  const updateLocalStorage = (newToken: string) => {
+  
+
+
+  const updateLocalStorage = (newToken: string, storedId: string) => {
     localStorage.setItem("token", newToken);
+    localStorage.setItem("userId", storedId);
     setToken(newToken);
+    setUserId(storedId);
   };
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
+  }
+    if (localStorage.getItem("userId")) {
+      setUserId(String(localStorage.getItem("userId")));
   }
 }, []);
 const clearLocalStorage = () => {

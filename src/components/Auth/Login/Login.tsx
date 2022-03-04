@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
 interface LoginProps {
-    updateLocalStorage: (newToken: string) => void
+    updateLocalStorage: (newToken: string, storedId: string) => void
 }
  
 interface LoginState {
@@ -27,7 +27,7 @@ class Login extends React.Component<LoginProps, LoginState> {
         }) .then (
             (response) => response.json()
         ).then((data) => {
-            this.props.updateLocalStorage(data.token);
+            this.props.updateLocalStorage(data.token, data.user.id);
             console.log(data)
         }) .catch (err => {
             console.log(err)

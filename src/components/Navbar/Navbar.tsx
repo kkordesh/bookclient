@@ -17,15 +17,14 @@ interface SitebarProps {
 }
  
 interface SitebarState {
- exact: boolean;
- path: string;
+
 
 }
  
 class Sitebar extends React.Component<SitebarProps, SitebarState> {
     constructor(props: SitebarProps) {
         super(props);
-        this.state = {exact: true, path: ""}
+      
     } 
 
 
@@ -50,8 +49,8 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
 
             <div className='NavbarRoute'>
                 <Routes>
-                    {/* <Route exact path='/Home' element={<Home/>} /> */}
-                    {/* <Route exact path='/MyLibrary' element={<MyLibrary/>} /> */}
+                    <Route  path='/Home' element={<Home token={this.props.token}/>} /> 
+                    <Route  path='/MyLibrary' element={<MyLibrary token={this.props.token}/>} />
 
                 </Routes>
 
