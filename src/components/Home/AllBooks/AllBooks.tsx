@@ -7,7 +7,7 @@ interface AllBooksProps {
 }
  
 interface AllBooksState {
-    allBooks : [string]
+    allBooks : []
 }
 
 interface allBooks {
@@ -24,7 +24,7 @@ interface allBooks {
 class AllBooks extends React.Component<AllBooksProps, AllBooksState> {
     constructor (props: AllBooksProps) {
         super(props);
-        this.state = {allBooks: ['']}
+        this.state = {allBooks: []}
     }
     
     
@@ -51,7 +51,7 @@ class AllBooks extends React.Component<AllBooksProps, AllBooksState> {
     render() { 
         return ( 
             <div>
-                <AllBooksTable FetchAllBooks = {this.FetchAllBooks}/>
+                <AllBooksTable FetchAllBooks = {this.FetchAllBooks} allBooks={this.state.allBooks}/>
             </div>
          );
     }
