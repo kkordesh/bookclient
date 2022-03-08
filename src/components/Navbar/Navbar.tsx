@@ -10,6 +10,7 @@ import {
 import Logout from "./logout/Logout"
 import Home from '../Home/Home'
 import MyLibrary from '../MyLibrary/MyLibrary';
+import BookPage from '../BookPage/BookPage';
 
 interface SitebarProps {
     clearLocalStorage: () => void
@@ -39,8 +40,15 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="/Home">Home</Nav.Link>
-        <Nav.Link href="/MyLibrary">My Library</Nav.Link>
+          <Link to='/Home'>
+
+        Home
+
+          </Link>
+        <Link to="/MyLibrary" style={{textDecoration: "none"}}>
+       My Library
+
+        </Link>
                <Logout clearLocalStorage = {this.props.clearLocalStorage} />
       </Nav>
     </Navbar.Collapse>
@@ -51,8 +59,8 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
                 <Routes>
                     <Route  path='/Home' element={<Home token={this.props.token}/>} /> 
                     <Route  path='/MyLibrary' element={<MyLibrary token={this.props.token}/>} />
-
-                </Routes>
+                    <Route  path='/BookPage/:id'  element={<BookPage token={this.props.token}/>} /> 
+                               </Routes>
 
             </div>
 

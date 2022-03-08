@@ -1,7 +1,15 @@
 import * as React from 'react'
 import AllBooks from '../AllBooks';
-import { Card, ListGroup, ListGroupItem, } from 'react-bootstrap'
+import { Card, ListGroup, ListGroupItem,} from 'react-bootstrap'
 import { stringify } from 'querystring';
+import BookPage from '../../../BookPage/BookPage'
+import {Routes, Route, Link} from 'react-router-dom'
+import {
+    Navbar,
+    Container, 
+    Nav,
+    
+} from 'react-bootstrap'
 
 
 interface AllBooksTableProps {
@@ -10,6 +18,7 @@ interface AllBooksTableProps {
 }
 
 interface AllBooksTableState {
+    id: string, 
     title: string,
     author: string,
     genre: string,
@@ -17,6 +26,7 @@ interface AllBooksTableState {
 }
 
 interface getBookAPI {
+    id: string
     title: string, 
     author: string,
     genre: string, 
@@ -26,7 +36,7 @@ interface getBookAPI {
 class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableState> {
     constructor(props: AllBooksTableProps) {
         super(props);
-        this.state = { title: "", author: "", genre: "", summary: "" }
+        this.state = { id: "", title: "", author: "", genre: "", summary: "" }
 
     }
 
@@ -48,8 +58,12 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                     <ListGroup className="list-group-flush">
                         <ListGroupItem>{book.author}</ListGroupItem>
                         <ListGroupItem>{book.genre}</ListGroupItem>
-
+                        <Link to={`/BookPage/${book.id}`}>
+                            See More
+                        </Link>
+                      
                     </ListGroup>
+                        
 
                 </Card>
             )
@@ -63,6 +77,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
             <div>
                 {this.allBookMapper()}
 
+                  
 
 
             </div>

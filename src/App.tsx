@@ -43,6 +43,8 @@ const clearLocalStorage = () => {
               <Auth updateLocalStorage = {
                 updateLocalStorage} token = {token}  /> 
          )};
+
+         
       
          </Router> 
     </div>
