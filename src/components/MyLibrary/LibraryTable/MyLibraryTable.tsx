@@ -7,7 +7,7 @@ import classnames from 'classnames'
 import ToRead from './LibraryLists/ToRead';
 import { textChangeRangeIsUnchanged } from 'typescript';
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
-
+import {Link} from 'react-router-dom'
 
 interface MyLibraryTableProps {
     token: string | null
@@ -91,6 +91,10 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
                         <ListGroupItem><Button onClick={() => {deleteBook()}}>Delete</Button>
                         <Button onClick={()=>{this.props.editUpdateBook(book); this.props.updateOn()}}>Update</Button>
                         </ListGroupItem>
+                        <Link to={`/BookPage/${book.id}`}>
+                            Summary/Reviews
+                        </Link>
+
                     </ListGroup>
                     
                 </Card>
@@ -126,6 +130,9 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
                     </Card.Body>
                     <ListGroup className="list-group-flush">
                         <ListGroupItem>genre: {book.genre}</ListGroupItem>
+                        <Link to={`/BookPage/${book.id}`}>
+                            Summary/Reviews
+                        </Link>
                         <ListGroupItem><Button onClick={() => {deleteBook()}}>Delete</Button>
                         <Button onClick={()=>{this.props.editUpdateBook(book); this.props.updateOn()}}>Update</Button>
                         </ListGroupItem>

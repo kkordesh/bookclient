@@ -9,16 +9,19 @@ const App = () => {
   const [token, setToken] = useState<string|null>("");
   const [userId, setUserId] = useState('');
   const [userName, setUserName] = useState('');
+  const [isAdmin, setisAdmin] = useState("");
   
 
 
-  const updateLocalStorage = (newToken: string, storedId: string, storedName: string) => {
+  const updateLocalStorage = (newToken: string, storedId: string, storedName: string, storedAdmin: string) => {
     localStorage.setItem("token", newToken);
     localStorage.setItem("userId", storedId);
     localStorage.setItem("userName", storedName)
+    localStorage.setItem('isAdmin', storedAdmin)
     setToken(newToken);
     setUserId(storedId);
     setUserName(storedName);
+    setisAdmin(storedAdmin)
   };
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -29,6 +32,9 @@ const App = () => {
   }
     if (localStorage.getItem("userName")) {
       setUserName(String(localStorage.getItem("userName")));
+    }
+    if (localStorage.getItem("isAdmin")) {
+      setisAdmin(String(localStorage.getItem("isAdmin")))
     }
 
 }, []);
@@ -48,7 +54,7 @@ const clearLocalStorage = () => {
           ) : ( 
               <Auth updateLocalStorage = {
                 updateLocalStorage} token = {token}  /> 
-         )};
+         )}
 
          
       

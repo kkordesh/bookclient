@@ -113,7 +113,7 @@ render() {
         return ( 
             <div>
                 <BookIdHelper pageId={this.bookHelper}/>
-                The ID of this book is  {this.state.pageId}
+               
                 {this.state.pageId.length> 0 ?
                 <BookPageTable bookfetcher={this.bookfetcher} book={this.state.book} pageId={this.state.pageId} token={this.props.token}/> : <></>
                     }   

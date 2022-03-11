@@ -3,7 +3,7 @@ import Login from './Login/Login';
 import Signup from './Signup/Signup'
 
 interface AuthProps {
-    updateLocalStorage: (newToken: string, storedId: string, storedName: string) => void;
+    updateLocalStorage: (newToken: string, storedId: string, storedName: string, storedAdmin: string) => void;
     token: string | null;
 }
  

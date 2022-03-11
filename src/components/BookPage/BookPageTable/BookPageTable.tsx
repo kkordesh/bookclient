@@ -18,6 +18,7 @@ interface BookPageTableState {
     list: string, 
     image: string 
     book: []
+    username: string
 }
 
 interface getThisBookApi {
@@ -28,6 +29,7 @@ interface getThisBookApi {
     summary: string, 
     list: string, 
     image: string 
+    username: string 
 }
  
 class BookPageTable extends React.Component<BookPageTableProps, BookPageTableState> {
@@ -41,7 +43,8 @@ class BookPageTable extends React.Component<BookPageTableProps, BookPageTableSta
             summary: "",
             list: "",
             image: "",
-            book: []
+            book: [],
+            username: ""
          };
     }
 
@@ -68,6 +71,7 @@ class BookPageTable extends React.Component<BookPageTableProps, BookPageTableSta
             return this.state.book.map((book: getThisBookApi, index) => {
                 return (
                     <div>
+                    <h3>Posted by: {book.username}</h3>
                     <img src={book.image}/>
                     <h1>{book.title} by {book.author}</h1>
                     <p>{book.summary}</p>

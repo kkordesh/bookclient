@@ -13,6 +13,9 @@ import { getValue } from '@testing-library/user-event/dist/utils';
 interface AllBooksTableProps {
     FetchAllBooks: () => void
     allBooks: getBookAPI[]
+    token: string | null 
+    updateOn: Function, 
+    editUpdateBook: Function
 }
 
 interface AllBooksTableState {
@@ -55,6 +58,21 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
     AllFilteredBookMapper = (filterType: "Action/Adventure" | "Classic" | "Detective/Mystery" | "Fantasy" | "Historical Fiction" | "Horror/Thriller" | "Non-Fiction" | "Romance" | "Sci-Fi") => {
 
         return this.props.allBooks.filter((book: getBookAPI) => book.genre === filterType).map((book: getBookAPI, index) => {
+                  
+          const deleteBook = () => {
+            const token = this.props.token
+            fetch(`http://localhost:4000/book/${book.id}`, {
+                method: 'DELETE',
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    Authorization: `${token}`
+                })
+            })
+            .then(() => this.props.FetchAllBooks())
+        }
+
+
+
             return (
 
                 <Card key={index} style={{ width: '18rem' }}>
@@ -70,7 +88,15 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                         <Link to={`/BookPage/${book.id}`}>
                             Summary/Reviews
                         </Link>
-                      
+                        <ListGroupItem>
+                      {localStorage.getItem("isAdmin") === 'true' ?
+                      <Button onClick={()=>{deleteBook()}}>Delete</Button>
+              
+                     : null }
+                     {localStorage.getItem("isAdmin") === 'true' ?
+                       <Button onClick={()=>{this.props.editUpdateBook(book); this.props.updateOn()}}>Update</Button>
+                     : null}   
+                        </ListGroupItem>
                     </ListGroup>
                         
 
@@ -84,7 +110,25 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
 
     allBookMapper = () => {
         return this.props.allBooks.map((book: getBookAPI, index) => {
+
+              
+          const deleteBook = () => {
+            const token = this.props.token
+            fetch(`http://localhost:4000/book/${book.id}`, {
+                method: 'DELETE',
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    Authorization: `${token}`
+                })
+            })
+            .then(() => this.props.FetchAllBooks())
+        }
+
+
             return (
+
+              
+
 
                 <Card key={index} style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={book.image} style={{width: '8rem'}}/>
@@ -99,7 +143,16 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                         <Link to={`/BookPage/${book.id}`}>
                             Summary/Reviews
                         </Link>
-                      
+                        <ListGroupItem>
+                      {localStorage.getItem("isAdmin") === 'true' ?
+                      <Button onClick={()=>{deleteBook()}}>Delete</Button>
+              
+                     : null }
+                     {localStorage.getItem("isAdmin") === 'true' ?
+                       <Button onClick={()=>{this.props.editUpdateBook(book); this.props.updateOn()}}>Update</Button>
+                     : null}   
+                        </ListGroupItem>
+
                     </ListGroup>
                         
 

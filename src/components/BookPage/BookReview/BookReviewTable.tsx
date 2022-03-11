@@ -17,6 +17,7 @@ interface BookReviewTableState {
    
     id: string
     userId: string
+    username: string
 }
 
 interface getReviewAPI {
@@ -26,6 +27,7 @@ interface getReviewAPI {
     bookId: string 
     id: string, 
     userId: string
+    username: string 
 }
  
 interface getUserAPI {
@@ -44,6 +46,7 @@ class BookReviewTable extends React.Component<BookReviewTableProps, BookReviewTa
             
             id: " ",
             userId: "",
+            username: ""
           };
     }
 
@@ -86,7 +89,7 @@ ReviewMapper = () => {
        return (
            <ListGroup key={index}>
                <ListGroupItem>
-                   
+                   {review.username} wrote: 
                </ListGroupItem>
             <ListGroupItem>
                 <ListGroupItemHeading>
@@ -96,9 +99,9 @@ ReviewMapper = () => {
                 <ListGroupItemText>
                     {review.review}
                 </ListGroupItemText>
-                {review.userId === localStorage.getItem('userId') ? 
+                {review.userId === localStorage.getItem('userId') ||  (localStorage.getItem('isAdmin')) === 'true' ? 
                 <Button onClick={()=>{deleteReview()}}>delete</Button> : null }
-                {review.userId === localStorage.getItem('userId') ? 
+                {review.userId === localStorage.getItem('userId') || (localStorage.getItem('isAdmin')) === 'true' ? 
                 <Button onClick={()=>{this.props.editUpdateReview(review); this.props.updateOn()}}>Edit</Button> : null
             }
            </ListGroup>

@@ -40,7 +40,7 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-          <Link to='/Home'>
+          <Link to='/'>
 
         Home
 
@@ -57,7 +57,7 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
 
             <div className='NavbarRoute'>
                 <Routes>
-                    <Route  path='/Home' element={<Home token={this.props.token}/>} /> 
+                    <Route  path='/' element={<Home token={this.props.token}/>} /> 
                     <Route  path='/MyLibrary' element={<MyLibrary token={this.props.token}/>} />
                     <Route  path='/BookPage/:id'  element={<BookPage token={this.props.token}/>} /> 
                                </Routes>

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useEffect} from 'react';
 import AllBooksTable from './AllBooksTable/AllBooksTable'
+import AllBooksEdit from './AllBooksEdit/AllBooksEdit'
 
 interface AllBooksProps {
     token : string | null
@@ -8,6 +9,8 @@ interface AllBooksProps {
  
 interface AllBooksState {
     allBooks : []
+    updateActive: boolean;
+    bookToUpdate: book 
 }
 
 interface allBooks {
@@ -20,11 +23,22 @@ interface allBooks {
 }
 
 
+export interface book {
+    id: number; 
+    title: string;
+    genre: string;
+    summary: string, 
+    image: string, 
+    list: string, 
+    author: string, 
+}
+ 
+
 
 class AllBooks extends React.Component<AllBooksProps, AllBooksState> {
     constructor (props: AllBooksProps) {
         super(props);
-        this.state = {allBooks: []}
+        this.state = {allBooks: [], updateActive: false, bookToUpdate: {} as book }
     }
     
     
@@ -47,11 +61,28 @@ class AllBooks extends React.Component<AllBooksProps, AllBooksState> {
        this.FetchAllBooks();
        //console.log(this.props.token)
     }
+
+    editUpdateBook = (book: book) => {
+        this.setState({ bookToUpdate: book})
+        console.log(book)
+    }
+
+    updateOn = () => {
+        this.setState({updateActive: true })
+    }
+    updateOff = () => {
+        this.setState({updateActive: false})
+    }
+
         
     render() { 
         return ( 
             <div>
-                <AllBooksTable FetchAllBooks = {this.FetchAllBooks} allBooks={this.state.allBooks}/>
+                <AllBooksTable token={this.props.token} FetchAllBooks = {this.FetchAllBooks} allBooks={this.state.allBooks} updateOn={this.updateOn} editUpdateBook={this.editUpdateBook}/>
+
+                {this.state.updateActive ? (
+              <AllBooksEdit token={this.props.token} FetchAllBooks={this.FetchAllBooks} bookToUpdate={this.state.bookToUpdate} updateOff={this.updateOff}/>  ) : (<div></div>)
+                }
             </div>
          );
     }
