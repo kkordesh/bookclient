@@ -1,7 +1,7 @@
 import { stringify } from 'querystring';
 import * as React from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap'
-import { isNumberObject } from 'util/types';
+
 
 interface BookReviewCreateProps {
     pageId: any
@@ -30,6 +30,7 @@ class BookReviewCreate extends React.Component<BookReviewCreateProps, BookReview
     }
 
 FetchTheseReviews = () => {
+    console.log('hello')
     const token = this.props.token 
     console.log(this.props.pageId)
     fetch(`http://localhost:4000/review/review/${this.props.pageId}`, {
@@ -45,7 +46,9 @@ FetchTheseReviews = () => {
     })
 }
 
-
+refreshPage =() => {
+    window.location.reload();
+}
 
     handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         const token = this.props.token
@@ -68,7 +71,7 @@ FetchTheseReviews = () => {
             this.setState({title: ""});
             this.setState({review: ""});
             this.setState({rating: ''})
-            this.FetchTheseReviews();
+            this.refreshPage();
         })
     }
 

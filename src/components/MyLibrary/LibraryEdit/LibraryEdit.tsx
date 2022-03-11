@@ -18,6 +18,7 @@ import {book} from '../MyLibrary'
     editImage: string; 
     editList: string; 
     modal: boolean; 
+    loading: boolean 
 
  }
   
@@ -33,8 +34,32 @@ import {book} from '../MyLibrary'
              editImage: this.props.bookToUpdate.image,
              editList:this.props.bookToUpdate.list,
              modal: false, 
+             loading: false 
               };
      }
+
+     UploadImage = async (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFormElement>) => {
+        const target = (e.target as HTMLInputElement)
+        const files : File = (target.files as FileList) [0]
+        const data = new FormData();
+        data.append("file", files);
+        data.append("upload_preset", "bookapp");
+        this.setState({loading: true});
+        const res = await fetch (
+            "https://api.cloudinary.com/v1_1/dw451lydk/image/upload", 
+            {
+                method: "POST",
+                body: data, 
+            }
+        )
+        const File = await res.json();
+
+        console.log(File)
+        this.setState({editImage: File.secure_url})
+        this.setState({loading: false})
+    }
+
+
 
      bookUpdate = (e: React.FormEvent<HTMLFormElement>) => {
         const token = this.props.token 
@@ -105,8 +130,11 @@ import {book} from '../MyLibrary'
                 </Input>
            </FormGroup>
            <FormGroup>
+               <h3>Upload Image</h3>
                <Label htmlFor='image'/>
-               <Input name='image' placeholder='image'value={this.state.editImage} onChange={(e)=> this.setState({editImage: e.target.value})}/>
+               <Input type='file' name='file' placeholder='Upload Image' onChange={this.UploadImage}/>
+               <br/>
+               {this.state.loading? (<h3>Loading...</h3>) : <img src={this.state.editImage} style={{width: '8rem'}}/>}
            </FormGroup>
 
                         <Button type="submit"> Submit </Button>

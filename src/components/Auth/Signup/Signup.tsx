@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 interface SignupProps {
-    updateLocalStorage: (newToken: string, storedId: string) => void
+    updateLocalStorage: (newToken: string, storedId: string, username: string) => void
 }
  
 interface SignupState {
@@ -30,7 +30,7 @@ class Signup extends React.Component<SignupProps, SignupState> {
         }).then (
             (response) => response.json()
         ).then ((data) => {
-            this.props.updateLocalStorage(data.token, data.user.id)
+            this.props.updateLocalStorage(data.token, data.user.id, data.user.username)
             console.log(data)
         }) .catch (err => {
             console.log(err)

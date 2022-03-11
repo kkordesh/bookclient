@@ -1,5 +1,6 @@
+import { timeStamp } from 'console';
 import * as React from 'react';
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalFooter, Container, ModalHeader, ModalBody} from 'reactstrap';
 
 
 
@@ -16,13 +17,45 @@ interface LibraryCreateState {
     summary: string, 
     image: string,
     list: string, 
+    loading: boolean 
+    modal: boolean
+    bookData: []
 }
  
 class LibraryCreate extends React.Component<LibraryCreateProps, LibraryCreateState> {
     constructor(props: LibraryCreateProps) {
         super(props);
-        this.state = { title:"", author: "", genre: "", summary: "", image: "", list: ""  };
+        this.state = { title:"", author: "", genre: "", summary: "", image: "", list: "", loading: false, modal: false, bookData: [] };
     }
+
+    togglePopup = () => {
+        this.setState({modal: true})
+    }
+    toggleClose = () => {
+        this.setState({modal: false})
+    }
+
+    UploadImage = async (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFormElement>) => {
+        const target = (e.target as HTMLInputElement)
+        const files : File = (target.files as FileList) [0]
+        const data = new FormData();
+        data.append("file", files);
+        data.append("upload_preset", "bookapp");
+        this.setState({loading: true});
+        const res = await fetch (
+            "https://api.cloudinary.com/v1_1/dw451lydk/image/upload", 
+            {
+                method: "POST",
+                body: data, 
+            }
+        )
+        const File = await res.json();
+
+        console.log(File)
+        this.setState({image: File.secure_url})
+        this.setState({loading: false})
+    }
+
 
     handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         const token = this.props.token
@@ -47,10 +80,18 @@ class LibraryCreate extends React.Component<LibraryCreateProps, LibraryCreateSta
         })
     }
 
+    
+
+
+
+
     render() { 
         return (  
             <div>
-       <h3>Log a Book</h3>
+                <Button onClick={this.togglePopup}>Log a Book!</Button>
+                <Modal isOpen={this.state.modal} toggle={this.togglePopup}>
+       <ModalHeader>Log a Book!</ModalHeader>
+       <ModalBody>
        <Form onSubmit={this.handleSubmit}>
            <FormGroup>
                <Label htmlFor='title'/>
@@ -86,13 +127,20 @@ class LibraryCreate extends React.Component<LibraryCreateProps, LibraryCreateSta
                    <option value="completed">Completed</option>
                 </Input>
            </FormGroup>
-           <FormGroup>
-               <Label htmlFor='image'/>
-               <Input name='image' placeholder='image'value={this.state.image} onChange={(e)=> this.setState({image: e.target.value})}/>
-           </FormGroup>
-        
+                <FormGroup>
+                    <h1>Upload image</h1>
+                    <Label htmlFor='image'/>
+                    <Input type="file" name='file'  placeholder="Upload Image Here" onChange={this.UploadImage}/>
+                    <br/>
+                    {this.state.loading ? (<h3>Loading...</h3>) : <img src={this.state.image} style={{width: "300px"}}/>}
+                </FormGroup>
+                <ModalFooter>
            <Button type='submit'>Click to Submit</Button>
+            <Button onClick={this.toggleClose}>Cancel</Button>
+                </ModalFooter>
        </Form>
+       </ModalBody>
+       </Modal>
             </div>
         );
     }

@@ -1,8 +1,12 @@
 import * as React from 'react'
-
+import {ListGroup, ListGroupItemHeading, ListGroupItemText, ListGroupItem, Button} from 'reactstrap'
 interface BookReviewTableProps {
     token: string | null 
     pageId: any 
+    updateOn: Function,
+    editUpdateReview: Function 
+    FetchTheseReviews: Function 
+    reviews: []
 }
 
 interface BookReviewTableState {
@@ -10,7 +14,9 @@ interface BookReviewTableState {
     review: string, 
     rating: number, 
     bookId: string, 
-    reviews: []
+   
+    id: string
+    userId: string
 }
 
 interface getReviewAPI {
@@ -18,8 +24,15 @@ interface getReviewAPI {
     review: string, 
     rating: number, 
     bookId: string 
+    id: string, 
+    userId: string
 }
  
+interface getUserAPI {
+    username: string, 
+    id: string, 
+
+}
 class BookReviewTable extends React.Component<BookReviewTableProps, BookReviewTableState> {
     constructor(props: BookReviewTableProps) {
         super(props);
@@ -28,40 +41,67 @@ class BookReviewTable extends React.Component<BookReviewTableProps, BookReviewTa
             review: "",
             rating: 5,
             bookId: this.props.pageId,
-            reviews: []
+            
+            id: " ",
+            userId: "",
           };
     }
 
     
-FetchTheseReviews = () => {
-    const token = this.props.token 
-    console.log(this.props.pageId)
-    fetch(`http://localhost:4000/review/review/${this.props.pageId}`, {
-        method: 'GET',
-        headers: new Headers ({
-            'Content-Type': 'application/json',
-            Authorization: `${token}`,
-        })
-    }) .then((res) => res.json())
-    .then((reviewData) => {
-        this.setState({reviews: reviewData})
-        console.log(reviewData)
-    })
-}
+// FetchTheseReviews = () => {
+//     const token = this.props.token 
+//     console.log(this.props.pageId)
+//     fetch(`http://localhost:4000/review/review/${this.props.pageId}`, {
+//         method: 'GET',
+//         headers: new Headers ({
+//             'Content-Type': 'application/json',
+//             Authorization: `${token}`,
+//         })
+//     }) .then((res) => res.json())
+//     .then((reviewData) => {
+//         this.setState({reviews: reviewData})
+//         console.log(reviewData)
+//     })
+// }
 
 componentDidMount () {
-    this.FetchTheseReviews();
+    this.props.FetchTheseReviews();
 }
 
 
 ReviewMapper = () => {
-   return this.state.reviews.map((review: getReviewAPI, index) => {
+   return this.props.reviews.map((review: getReviewAPI, index) => {
+
+    const deleteReview = () => {
+        const token = this.props.token
+        fetch(`http://localhost:4000/review/${review.id}`, {
+            method: 'DELETE',
+            headers: new Headers ({
+                'Content-Type': 'application/json',
+                Authorization: `${token}`
+            })
+        })
+        .then(() => this.props.FetchTheseReviews())
+    }
        return (
-           <div key={index}>
-           <header>{review.title}</header>
-           <p>{review.review}</p>
-           <p>{review.rating}</p>
-           </div>
+           <ListGroup key={index}>
+               <ListGroupItem>
+                   
+               </ListGroupItem>
+            <ListGroupItem>
+                <ListGroupItemHeading>
+                    {review.title} rating: {review.rating}
+                </ListGroupItemHeading>
+            </ListGroupItem>
+                <ListGroupItemText>
+                    {review.review}
+                </ListGroupItemText>
+                {review.userId === localStorage.getItem('userId') ? 
+                <Button onClick={()=>{deleteReview()}}>delete</Button> : null }
+                {review.userId === localStorage.getItem('userId') ? 
+                <Button onClick={()=>{this.props.editUpdateReview(review); this.props.updateOn()}}>Edit</Button> : null
+            }
+           </ListGroup>
        )
    })
 }
