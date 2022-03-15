@@ -1,7 +1,7 @@
 import * as React from 'react'
  import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import {book} from '../MyLibrary'
-
+import APIURL from '../../../helpers/environment'
  interface LibraryEditProps {
      bookToUpdate: book;
      updateOff: Function;
@@ -64,7 +64,7 @@ import {book} from '../MyLibrary'
      bookUpdate = (e: React.FormEvent<HTMLFormElement>) => {
         const token = this.props.token 
          e.preventDefault();
-         fetch(`http://localhost:4000/book/${this.props.bookToUpdate.id}`, {
+         fetch(`${APIURL}/book/${this.props.bookToUpdate.id}`, {
              method: 'PUT',
              body: JSON.stringify({
                  title: this.state.editTitle, 

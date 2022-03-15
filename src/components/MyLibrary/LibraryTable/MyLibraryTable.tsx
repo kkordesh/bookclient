@@ -5,6 +5,7 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, CardTitle, CardText, Row, C
 import classnames from 'classnames'
 import {Link} from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
+import APIURL from '../../../helpers/environment'
 
 interface MyLibraryTableProps {
     token: string | null
@@ -63,7 +64,7 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
             
             const deleteBook = () => {
                 const token = this.props.token
-                fetch(`http://localhost:4000/book/${book.id}`, {
+                fetch(`${APIURL}/book/${book.id}`, {
                     method: 'DELETE',
                     headers: new Headers({
                         'Content-Type': 'application/json',
@@ -110,7 +111,7 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
             
             const deleteBook = () => {
                 const token = this.props.token
-                fetch(`http://localhost:4000/book/${book.id}`, {
+                fetch(`${APIURL}/book/${book.id}`, {
                     method: 'DELETE',
                     headers: new Headers({
                         'Content-Type': 'application/json',

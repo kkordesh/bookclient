@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './BookPageTable.css'
 import {Row, Col} from 'react-bootstrap'
-
+import APIURL from '../../../helpers/environment'
 interface BookPageTableProps {
     pageId: any
     token: string | null 
@@ -51,7 +51,7 @@ class BookPageTable extends React.Component<BookPageTableProps, BookPageTableSta
     bookfetcher = () => {
         const token = this.props.token
         console.log(this.props.pageId)
-        fetch(`http://localhost:4000/book/book/${this.props.pageId}`, {
+        fetch(`${APIURL}/book/book/${this.props.pageId}`, {
             
             method: 'GET',
             headers: new Headers ({

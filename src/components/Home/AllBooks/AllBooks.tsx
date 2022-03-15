@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {useEffect} from 'react';
-import AllBooksTable from './AllBooksTable/AllBooksTable'
-import AllBooksEdit from './AllBooksEdit/AllBooksEdit'
+import AllBooksTable from '../AllBooks/AllBooksTable/AllBooksTable'
+import AllBooksEdit from '../AllBooks/AllBooksEdit/AllBooksEdit'
 import './AllBooks.css'
+import APIURL from '../../../helpers/environment'
 interface AllBooksProps {
     token : string | null
 }
@@ -36,7 +37,7 @@ class AllBooks extends React.Component<AllBooksProps, AllBooksState> {
     
     FetchAllBooks = () => {
         const token = this.props.token
-        fetch('http://localhost:4000/book/', {
+        fetch(`${APIURL}/book/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Auth from './components/Auth/Auth';
 import {BrowserRouter as Router} from 'react-router-dom';
-
+import APIURL from './helpers/environment';
 const App = () => {
   const [token, setToken] = useState<string|null>("");
   const [userId, setUserId] = useState('');

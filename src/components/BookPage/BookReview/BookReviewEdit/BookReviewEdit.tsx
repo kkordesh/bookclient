@@ -1,7 +1,7 @@
 import React from 'react'
 import { review } from '../../BookPage';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
-
+import APIURL from '../../../../helpers/environment'
 interface BookReviewEditProps {
 token : string | null,
 reviewToUpdate: review;
@@ -35,7 +35,7 @@ class BookReviewEdit extends React.Component<BookReviewEditProps, BookReviewEdit
     reviewUpdate = (e: React.FormEvent<HTMLFormElement>) => {
         const token = this.props.token 
          e.preventDefault();
-         fetch(`http://localhost:4000/review/${this.props.reviewToUpdate.id}`, {
+         fetch(`${APIURL}/review/${this.props.reviewToUpdate.id}`, {
              method: 'PUT',
              body: JSON.stringify({
                  title: this.state.editTitle, 

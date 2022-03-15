@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-
+import APIURL from '../../../helpers/environment'
 interface SignupProps {
     updateLocalStorage: (newToken: string, storedId: string, username: string, storedAdmin: string) => void
 }
@@ -21,7 +21,7 @@ class Signup extends React.Component<SignupProps, SignupState> {
    
     handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetch("http://localhost:4000/user/register", {
+        fetch(`${APIURL}/user/register`, {
             method: 'POST',
             body: JSON.stringify(this.state),
             headers: new Headers({

@@ -1,7 +1,7 @@
 import { stringify } from 'querystring';
 import * as React from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap'
-
+import APIURL from '../../../../helpers/environment'
 
 interface BookReviewCreateProps {
     pageId: any
@@ -33,7 +33,7 @@ FetchTheseReviews = () => {
     console.log('hello')
     const token = this.props.token 
     console.log(this.props.pageId)
-    fetch(`http://localhost:4000/review/review/${this.props.pageId}`, {
+    fetch(`${APIURL}/review/review/${this.props.pageId}`, {
         method: 'GET',
         headers: new Headers ({
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ refreshPage =() => {
     handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         const token = this.props.token
         e.preventDefault();
-        fetch('http://localhost:4000/review/', {
+        fetch(`${APIURL}/review/`, {
             method: 'POST',
             body: JSON.stringify({
                 title: this.state.title, 

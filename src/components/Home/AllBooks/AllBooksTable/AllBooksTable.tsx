@@ -4,7 +4,7 @@ import {Routes, Route, Link} from 'react-router-dom'
 import './AllBooksTable.css'
 import { NavItem, Nav, NavLink, TabContent, TabPane, Button} from 'reactstrap';
 import classnames from 'classnames';
-
+import APIURL from '../../../../helpers/environment'
 
 interface AllBooksTableProps {
     FetchAllBooks: () => void
@@ -57,7 +57,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                   
           const deleteBook = () => {
             const token = this.props.token
-            fetch(`http://localhost:4000/book/${book.id}`, {
+            fetch(`${APIURL}/book/${book.id}`, {
                 method: 'DELETE',
                 headers: new Headers({
                     'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
               
           const deleteBook = () => {
             const token = this.props.token
-            fetch(`http://localhost:4000/book/${book.id}`, {
+            fetch(`${APIURL}/book/${book.id}`, {
                 method: 'DELETE',
                 headers: new Headers({
                     'Content-Type': 'application/json',

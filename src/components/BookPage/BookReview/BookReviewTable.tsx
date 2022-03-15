@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {ListGroup, ListGroupItemHeading, ListGroupItemText, ListGroupItem, Button} from 'reactstrap'
+import APIURL from './../../../helpers/environment'
 interface BookReviewTableProps {
     token: string | null 
     pageId: any 
@@ -60,7 +61,7 @@ ReviewMapper = () => {
 
     const deleteReview = () => {
         const token = this.props.token
-        fetch(`http://localhost:4000/review/${review.id}`, {
+        fetch(`${APIURL}/review/${review.id}`, {
             method: 'DELETE',
             headers: new Headers ({
                 'Content-Type': 'application/json',

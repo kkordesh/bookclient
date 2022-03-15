@@ -4,6 +4,7 @@ import BookPageTable from './BookPageTable/BookPageTable'
 import BookReviewCreate from './BookReview/BookReviewCreate/BookReviewCreate';
 import BookReviewEdit from './BookReview/BookReviewEdit/BookReviewEdit';
 import BookReviewTable from './BookReview/BookReviewTable';
+import APIURL from '../../helpers/environment'
 import './BookPage.css'
 interface BookPageProps {
 token: string | null 
@@ -61,7 +62,7 @@ updateOff = () => {
 FetchTheseReviews = () => {
     const token = this.props.token 
     console.log(this.state.pageId)
-    fetch(`http://localhost:4000/review/review/${this.state.pageId}`, {
+    fetch(`${APIURL}/review/review/${this.state.pageId}`, {
         method: 'GET',
         headers: new Headers ({
             'Content-Type': 'application/json',
@@ -77,7 +78,7 @@ FetchTheseReviews = () => {
 bookfetcher = () => {
     const token = this.props.token
     console.log(this.state.pageId)
-    fetch(`http://localhost:4000/book/book/${this.state.pageId}`, {
+    fetch(`${APIURL}/book/book/${this.state.pageId}`, {
         
         method: 'GET',
         headers: new Headers ({
