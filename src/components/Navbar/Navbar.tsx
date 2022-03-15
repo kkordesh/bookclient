@@ -10,6 +10,8 @@ import {
 import Logout from "./logout/Logout"
 import Home from '../Home/Home'
 import MyLibrary from '../MyLibrary/MyLibrary';
+import BookPage from '../BookPage/BookPage';
+import './Navbar.css'
 
 interface SitebarProps {
     clearLocalStorage: () => void
@@ -17,15 +19,14 @@ interface SitebarProps {
 }
  
 interface SitebarState {
- exact: boolean;
- path: string;
+
 
 }
  
 class Sitebar extends React.Component<SitebarProps, SitebarState> {
     constructor(props: SitebarProps) {
         super(props);
-        this.state = {exact: true, path: ""}
+      
     } 
 
 
@@ -34,26 +35,33 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
             <div>
 
          
-<Navbar bg="light" expand="lg">
+<Navbar className='bar'expand="lg">
   <Container>
-    <Navbar.Brand>Books</Navbar.Brand>
+    <Navbar.Brand>BookShelf</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="/Home">Home</Nav.Link>
-        <Nav.Link href="/MyLibrary">My Library</Nav.Link>
-               <Logout clearLocalStorage = {this.props.clearLocalStorage} />
+          <Link to='/'>
+
+        Home
+
+          </Link>
+        <Link to="/MyLibrary" style={{textDecoration: "none"}}>
+       My Library
+        </Link>
+
       </Nav>
+               <Logout clearLocalStorage = {this.props.clearLocalStorage} />
     </Navbar.Collapse>
   </Container>
 </Navbar>
 
             <div className='NavbarRoute'>
                 <Routes>
-                    {/* <Route exact path='/Home' element={<Home/>} /> */}
-                    {/* <Route exact path='/MyLibrary' element={<MyLibrary/>} /> */}
-
-                </Routes>
+                    <Route  path='/' element={<Home token={this.props.token}/>} /> 
+                    <Route  path='/MyLibrary' element={<MyLibrary token={this.props.token}/>} />
+                    <Route  path='/BookPage/:id'  element={<BookPage token={this.props.token}/>} /> 
+                               </Routes>
 
             </div>
 

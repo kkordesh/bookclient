@@ -1,0 +1,71 @@
+body {
+    background: url('../assets/books.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: right;
+}
+
+.overlay{
+    opacity:0.8;
+    background-color:#ccc;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+}
+
+.loginForm {
+    width: 25%;
+    
+    text-align: center;
+    margin-left: 13%;
+    padding: 3%;
+    background-color: rgb(253, 252, 229, .5);
+    border-radius: 8%;
+    border: solid 1px #999999
+}
+
+h1#welcometitle {
+font-size: 60pt;
+margin-left: 6%;
+    
+}
+
+h2 {
+font-family: roboto roboto-serif;
+margin-left: 15%;
+color: #999999
+}
+
+#login {
+    margin-left: 15%;
+}
+
+#signuptitle {
+    margin-left: 15%
+}
+
+input.form-control {
+    align-items: center;
+    width: 60%;
+    margin-left: 20%
+}
+
+.signupForm {
+    width: 25%;
+    height: 40%;
+    text-align: center;
+    margin-left: 13%;
+    padding: 3%;
+    background-color: rgb(253, 252, 229, .5);
+    border-radius: 8%;
+    border: solid 1px #999999
+}
+
+#togbtn {
+    margin-left: 21%;
+}

@@ -1,0 +1,31 @@
+.homenav {
+    height: 800px;
+    text-align: center;
+    padding-top: 50%;
+    font-size: large;   
+    border-radius: 1%;
+    
+}
+
+
+a.nav-link {
+    color: #4c4f52;
+    cursor: pointer;
+} 
+
+div.card {
+    font-family: roboto-serif;
+    color: #4c4f52;
+    
+}
+
+.cardbody {
+    padding-top: 20%;
+}
+ 
+h4.genre {
+    margin-left: 35%;
+    font-family: roboto roboto-serif;
+    text-decoration: underline 1.5px;
+    color: #4c4f52;
+}
