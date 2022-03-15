@@ -25,12 +25,12 @@ class Login extends React.Component<LoginProps, LoginState> {
             headers: new Headers ({
                 'Content-Type': 'application/json'
             })
-        }) .then (
+        }).then (
             (response) => response.json()
         ).then((data) => {
             this.props.updateLocalStorage(data.token, data.user.id, data.user.username, data.user.isAdmin);
             console.log(data)
-        }) .catch (err => {
+        }).catch (err => {
             console.log(err)
         })
     }

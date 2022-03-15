@@ -24,10 +24,7 @@ interface SitebarState {
 }
  
 class Sitebar extends React.Component<SitebarProps, SitebarState> {
-    constructor(props: SitebarProps) {
-        super(props);
-      
-    } 
+  
 
 
     render() { 

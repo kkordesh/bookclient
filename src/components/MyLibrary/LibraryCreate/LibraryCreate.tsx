@@ -1,6 +1,5 @@
-import { timeStamp } from 'console';
 import * as React from 'react';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalFooter, Container, ModalHeader, ModalBody} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalFooter, ModalHeader, ModalBody} from 'reactstrap';
 import APIURL from '../../../helpers/environment'
 
 
@@ -37,7 +36,7 @@ class LibraryCreate extends React.Component<LibraryCreateProps, LibraryCreateSta
 
     UploadImage = async (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFormElement>) => {
         const target = (e.target as HTMLInputElement)
-        const files : File = (target.files as FileList) [0]
+        const files : File = (target.files as FileList)[0]
         const data = new FormData();
         data.append("file", files);
         data.append("upload_preset", "bookapp");
@@ -67,7 +66,7 @@ class LibraryCreate extends React.Component<LibraryCreateProps, LibraryCreateSta
                 'Content-Type': 'application/json',
                 Authorization: `${token}` 
             })
-        }) .then((res) => res.json())
+        }).then((res) => res.json())
         .then((bookData) => {
             console.log(bookData);
             this.setState({title: ""});
@@ -132,7 +131,7 @@ class LibraryCreate extends React.Component<LibraryCreateProps, LibraryCreateSta
                     <Label htmlFor='image'/>
                     <Input type="file" name='file'  placeholder="Upload Image Here" onChange={this.UploadImage}/>
                     <br/>
-                    {this.state.loading ? (<h3>Loading...</h3>) : <img src={this.state.image} style={{width: "300px"}}/>}
+                    {this.state.loading ? (<h3>Loading...</h3>) : <img src={this.state.image} style={{width: "300px"}} alt={this.state.title}/>}
                 </FormGroup>
                 <ModalFooter>
            <Button type='submit'>Click to Submit</Button>

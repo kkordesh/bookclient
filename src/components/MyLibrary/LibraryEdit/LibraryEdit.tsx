@@ -29,7 +29,7 @@ import APIURL from '../../../helpers/environment'
              editId: this.props.bookToUpdate.id,
              editTitle: this.props.bookToUpdate.title,
              editAuthor: this.props.bookToUpdate.author, 
-             editGenre: this. props.bookToUpdate.genre,
+             editGenre: this.props.bookToUpdate.genre,
              editSummary: this.props.bookToUpdate.summary,
              editImage: this.props.bookToUpdate.image,
              editList:this.props.bookToUpdate.list,
@@ -40,7 +40,7 @@ import APIURL from '../../../helpers/environment'
 
      UploadImage = async (e: React.ChangeEvent<HTMLInputElement> | React.FormEvent<HTMLFormElement>) => {
         const target = (e.target as HTMLInputElement)
-        const files : File = (target.files as FileList) [0]
+        const files : File = (target.files as FileList)[0]
         const data = new FormData();
         data.append("file", files);
         data.append("upload_preset", "bookapp");
@@ -78,7 +78,7 @@ import APIURL from '../../../helpers/environment'
                  'Content-Type': 'application/json',
                  Authorization: `${token}`
              }),
-         }) .then ((res) => {
+         }).then ((res) => {
              this.props.FetchMyBooks();
              this.props.updateOff();
          });
@@ -134,7 +134,7 @@ import APIURL from '../../../helpers/environment'
                <Label htmlFor='image'/>
                <Input type='file' name='file' placeholder='Upload Image' onChange={this.UploadImage}/>
                <br/>
-               {this.state.loading? (<h3>Loading...</h3>) : <img src={this.state.editImage} style={{width: '8rem'}}/>}
+               {this.state.loading? (<h3>Loading...</h3>) : <img src={this.state.editImage} style={{width: '8rem'}} alt='edit image'/>}
            </FormGroup>
 
                         <Button type="submit"> Submit </Button>

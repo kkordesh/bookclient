@@ -41,7 +41,7 @@ class MyLibrary extends React.Component<MyLibraryProps, MyLibraryState> {
             'Content-Type': 'application/json',
             Authorization: `${token}`
         })
-    }) .then ((res) => res.json())
+    }).then ((res) => res.json())
     .then((bookData) => {
         this.setState({myBooks: bookData.books})
         console.log(bookData.books)

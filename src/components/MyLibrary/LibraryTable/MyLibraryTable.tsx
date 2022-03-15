@@ -1,7 +1,7 @@
 
 import * as React from 'react'
-import { Card, ListGroup, ListGroupItem, Button, ButtonGroup} from 'react-bootstrap'
-import { TabContent, TabPane, Nav, NavItem, NavLink, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap'
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from 'classnames'
 import {Link} from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";

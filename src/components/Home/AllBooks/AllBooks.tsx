@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {useEffect} from 'react';
 import AllBooksTable from '../AllBooks/AllBooksTable/AllBooksTable'
 import AllBooksEdit from '../AllBooks/AllBooksEdit/AllBooksEdit'
 import './AllBooks.css'
 import APIURL from '../../../helpers/environment'
+
 interface AllBooksProps {
     token : string | null
 }
@@ -43,7 +43,7 @@ class AllBooks extends React.Component<AllBooksProps, AllBooksState> {
                 'Content-Type': 'application/json',
                 Authorization:  `${token}`,
             }),
-        }) .then ((res) => res.json())
+        }).then ((res) => res.json())
         .then((bookData) => {
             this.setState({allBooks: bookData})
             console.log(bookData)

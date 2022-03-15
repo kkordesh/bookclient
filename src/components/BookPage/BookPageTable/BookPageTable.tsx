@@ -58,7 +58,7 @@ class BookPageTable extends React.Component<BookPageTableProps, BookPageTableSta
                 'Content-Type': 'application/json',
                 Authorization: `${token}`
             })
-        }) .then ((res) => res.json())
+        }).then ((res) => res.json())
         .then((bookData) => {
             this.setState({book: bookData})
             console.log(bookData, 'HELLO')
@@ -75,7 +75,7 @@ class BookPageTable extends React.Component<BookPageTableProps, BookPageTableSta
                         <h3>by: {book.author}</h3>
                         <Row>
                         <Col className="col-6">
-                    <img src={book.image}/>
+                    <img src={book.image} alt={book.title}/>
                     </Col>
                     <Col className='col-6'>
                     <p className='summary'>{book.summary}</p>

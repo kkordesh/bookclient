@@ -68,7 +68,7 @@ FetchTheseReviews = () => {
             'Content-Type': 'application/json',
             Authorization: `${token}`,
         })
-    }) .then((res) => res.json())
+    }).then((res) => res.json())
     .then((reviewData) => {
         this.setState({reviews: reviewData})
         console.log(reviewData)
@@ -85,7 +85,7 @@ bookfetcher = () => {
             'Content-Type': 'application/json',
             Authorization: `${token}`
         })
-    }) .then ((res) => res.json())
+    }).then ((res) => res.json())
     .then((bookData) => {
         this.setState({book: bookData})
         console.log(bookData, 'HELLO')

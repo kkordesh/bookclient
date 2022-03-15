@@ -1,4 +1,3 @@
-import { stringify } from 'querystring';
 import * as React from 'react';
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap'
 import APIURL from '../../../../helpers/environment'
@@ -6,7 +5,6 @@ import APIURL from '../../../../helpers/environment'
 interface BookReviewCreateProps {
     pageId: any
     token: string | null
-    
 }
  
 interface BookReviewCreateState {
@@ -39,7 +37,7 @@ FetchTheseReviews = () => {
             'Content-Type': 'application/json',
             Authorization: `${token}`,
         })
-    }) .then((res) => res.json())
+    }).then((res) => res.json())
     .then((reviewData) => {
         this.setState({reviews: reviewData})
         console.log(reviewData)
@@ -65,7 +63,7 @@ refreshPage =() => {
                 'Content-Type': 'application/json',
                 Authorization: `${token}` 
             })
-        }) .then((res) => res.json())
+        }).then((res) => res.json())
         .then((reviewData) => {
             console.log(reviewData);
             this.setState({title: ""});

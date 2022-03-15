@@ -46,12 +46,12 @@ class BookReviewEdit extends React.Component<BookReviewEditProps, BookReviewEdit
                  'Content-Type': 'application/json',
                  Authorization: `${token}`
              }),
-         }) .then ((res) => res.json())
+         }).then ((res) => res.json())
          .then(json => {
              this.props.updateOff();
             this.props.FetchTheseReviews();
             console.log(json)
-         }) .catch (err => console.log(err))
+         }).catch (err => console.log(err))
          ;
     };
 
