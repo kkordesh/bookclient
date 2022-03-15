@@ -29,7 +29,7 @@ class Auth extends React.Component<AuthProps, AuthState> {
         //this.props.updateLocalStorage
 
         return ( 
-            <div>
+            <div id='loginpage' className='overlay'>
                 <h1 id='welcometitle'>Welcome to BookShelf</h1>
                 <h2>Sign up or log in to get started!</h2>
                 { this.state.LoginVisible === true ? (

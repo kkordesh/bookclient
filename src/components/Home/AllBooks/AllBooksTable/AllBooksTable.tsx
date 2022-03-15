@@ -1,14 +1,10 @@
 import * as React from 'react'
-import AllBooks from '../AllBooks';
 import { Card, ListGroup, ListGroupItem, CardGroup, Row, Col} from 'react-bootstrap'
-import { stringify } from 'querystring';
-import BookPage from '../../../BookPage/BookPage'
 import {Routes, Route, Link} from 'react-router-dom'
-
 import './AllBooksTable.css'
 import { NavItem, Nav, NavLink, TabContent, TabPane, Button} from 'reactstrap';
 import classnames from 'classnames';
-import { getValue } from '@testing-library/user-event/dist/utils';
+
 
 interface AllBooksTableProps {
     FetchAllBooks: () => void
@@ -76,13 +72,13 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
             return (
 
             
-<Card key={index} style={{ width: '25rem' }}>
+<Card key={index} style={{width: '26rem', margin: '15px'}}>
   <Row className='no-gutters'>
   <Col md={5} lg={5}  >
-  <Card.Img variant="top" src={book.image} />
+  <Card.Img variant="top" src={book.image} style={{minHeight: '260px', paddingTop: '5px', paddingBottom: '5px' }}/>
   </Col>
   <Col>
-  <Card.Body>
+  <Card.Body className='cardbody'>
     <Card.Title>{book.title}</Card.Title>
     <Card.Text>
       By: {book.author}
@@ -137,14 +133,14 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
 
               
             
-<Card key={index} style={{ width: '26rem' }}>
+<Card key={index} style={{ width: '26rem', margin: '15px' }}>
   
   <Row>
   <Col md={5} lg={5}  >
-  <Card.Img variant="top" src={book.image} />
+  <Card.Img variant="top" src={book.image} style={{minHeight: '260px', paddingTop: '5px', paddingBottom: '5px'}} />
   </Col>
   <Col>
-  <Card.Body>
+  <Card.Body className='cardbody'>
     <Card.Title>{book.title}</Card.Title>
     <Card.Text>
       By: {book.author}
@@ -183,10 +179,10 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
 
     render() {
         return (
-            <div >
+            <div className='hometable'>
                          <Row>
             <Col xs="6" sm="4" md="2">
-              <Nav tabs vertical pills>
+              <Nav className='homenav' tabs vertical pills>
                 <NavItem>
                   <NavLink
                     className={classnames({active: this.state.activeTab === '1'})}
@@ -289,50 +285,89 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                 </NavItem>
               </Nav>
             </Col>
-            <Col xs="6" sm="6" md="8">
+            <Col xs="6" sm="6" md="10">
               <TabContent activeTab={this.state.activeTab}>
                 <TabPane tabId="1">
                   <h4>All Books</h4>
             
-                
+                <Row>
                 {this.allBookMapper()}
+
+                </Row>
  
                 </TabPane>
                 <TabPane tabId="2">
                   <h4>Action/Adventure</h4>
+
+                  <Row>
                 {this.AllFilteredBookMapper("Action/Adventure")}
+
+                  </Row>
                 </TabPane>
                 <TabPane tabId="3">
                   <h4>Classic</h4>
+
+                  <Row>
                 {this.AllFilteredBookMapper("Classic")}
+
+                  </Row>
                 </TabPane>
                 <TabPane tabId="4">
                   <h4>Detective/Mystery</h4>
+
+                 <Row> 
                 {this.AllFilteredBookMapper("Detective/Mystery")}
+
+                 </Row>
                 </TabPane>
                 <TabPane tabId="5">
                   <h4>Fantasy</h4>
+
+                  <Row>
+
                 {this.AllFilteredBookMapper("Fantasy")}
+
+                  </Row>
                 </TabPane>
                 <TabPane tabId="6">
                   <h4>Historical Fiction</h4>
+
+                  <Row>
                 {this.AllFilteredBookMapper("Historical Fiction")}
+
+                  </Row>
                 </TabPane>
                 <TabPane tabId="7">
                   <h4>Horror/Thriller</h4>
+
+                  <Row>
                 {this.AllFilteredBookMapper("Horror/Thriller")}
+
+                  </Row>
                 </TabPane>
                 <TabPane tabId="8">
                   <h4>Non-Fiction</h4>
+
+                  <Row>
                 {this.AllFilteredBookMapper("Non-Fiction")}
+
+                  </Row>
                 </TabPane>
                 <TabPane tabId="9">
                   <h4>Romance</h4>
+
+                  <Row>
                 {this.AllFilteredBookMapper("Romance")}
+
+                  </Row>
                 </TabPane>
                 <TabPane tabId="10">
                   <h4>Sci-Fi</h4>
+                  <Row>
+
                 {this.AllFilteredBookMapper("Sci-Fi")}
+
+                  </Row>
                 </TabPane>
               </TabContent>
             </Col>
