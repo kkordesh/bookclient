@@ -1,0 +1,15 @@
+
+
+#logout {
+    background-color: transparent;
+    border-radius: 10%;
+    border: solid 1px;
+    font-family: roboto-serif;
+    transition-duration: 0.4s;
+    
+}
+
+#logout:hover {
+    background-color: transparent;
+    background-color: #D7E9F7;
+}

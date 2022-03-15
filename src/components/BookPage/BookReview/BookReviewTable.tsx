@@ -30,11 +30,8 @@ interface getReviewAPI {
     username: string 
 }
  
-interface getUserAPI {
-    username: string, 
-    id: string, 
 
-}
+
 class BookReviewTable extends React.Component<BookReviewTableProps, BookReviewTableState> {
     constructor(props: BookReviewTableProps) {
         super(props);
@@ -51,21 +48,7 @@ class BookReviewTable extends React.Component<BookReviewTableProps, BookReviewTa
     }
 
     
-// FetchTheseReviews = () => {
-//     const token = this.props.token 
-//     console.log(this.props.pageId)
-//     fetch(`http://localhost:4000/review/review/${this.props.pageId}`, {
-//         method: 'GET',
-//         headers: new Headers ({
-//             'Content-Type': 'application/json',
-//             Authorization: `${token}`,
-//         })
-//     }) .then((res) => res.json())
-//     .then((reviewData) => {
-//         this.setState({reviews: reviewData})
-//         console.log(reviewData)
-//     })
-// }
+
 
 componentDidMount () {
     this.props.FetchTheseReviews();

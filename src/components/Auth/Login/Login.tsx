@@ -37,15 +37,15 @@ class Login extends React.Component<LoginProps, LoginState> {
     render() { 
         return ( 
             <div>
-                <h1>Login</h1>
-            <Form onSubmit={this.handleSubmit}>
+                <h1 id='login'>Login</h1>
+            <Form onSubmit={this.handleSubmit} className='loginForm'>
                 <FormGroup>
                     <Label htmlFor="username">Username</Label>
                     <Input onChange={(e)=> this.setState({username: e.target.value})} placeholder="type username"name="username" value={this.state.username} />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor='password'>Password</Label>
-                    <Input onChange={(e)=>this.setState({password: e.target.value})} name="password" value={this.state.password}/>
+                    <Input onChange={(e)=>this.setState({password: e.target.value})} name="password" placeholder='type password' value={this.state.password}/>
                 </FormGroup>
                 <Button type='submit'>Login</Button>
             </Form>

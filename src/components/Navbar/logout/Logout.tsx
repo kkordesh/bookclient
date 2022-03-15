@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Link} from "react-router-dom"
-
+import "./Logout.css"
 interface LogoutProps {
     clearLocalStorage: () => void
 }
@@ -13,9 +13,11 @@ class Logout extends React.Component<LogoutProps, LogoutState> {
 
     render() { 
         return ( 
-            <div>
+
+            <div className='logout'>
+                
                 <Link to='/'>
-                    <button
+                    <button id='logout'
                     onClick={this.props.clearLocalStorage}
                     >
                         Logout

@@ -1,5 +1,14 @@
 .App {
-  text-align: center;
+  
+  font-family: roboto roboto-serif;
+
+}
+
+h1 {
+  padding-top: 1%;
+  font-style: italic;
+  color: #eeb661; 
+  
 }
 
 .App-logo {
@@ -13,26 +22,12 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
 
 .App-link {
-  color: #61dafb;
+  color: #32606d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav {
+  background-color: #D7E9F7;
 }

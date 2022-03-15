@@ -1,6 +1,6 @@
 import * as React from 'react'
-
-
+import './BookPageTable.css'
+import {Row, Col} from 'react-bootstrap'
 
 interface BookPageTableProps {
     pageId: any
@@ -70,11 +70,18 @@ class BookPageTable extends React.Component<BookPageTableProps, BookPageTableSta
         BookMap = () => {
             return this.state.book.map((book: getThisBookApi, index) => {
                 return (
-                    <div>
-                    <h3>Posted by: {book.username}</h3>
+                    <div className='col-4'>
+                        <h1>{book.title}</h1>
+                        <h3>by: {book.author}</h3>
+                        <Row>
+                        <Col className="col-6">
                     <img src={book.image}/>
-                    <h1>{book.title} by {book.author}</h1>
-                    <p>{book.summary}</p>
+                    </Col>
+                    <Col className='col-6'>
+                    <p className='summary'>{book.summary}</p>
+                    </Col>
+                        </Row>
+                    <h6>Posted by: {book.username}</h6>
                     </div>
                 )
             })

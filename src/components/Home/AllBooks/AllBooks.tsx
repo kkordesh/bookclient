@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useEffect} from 'react';
 import AllBooksTable from './AllBooksTable/AllBooksTable'
 import AllBooksEdit from './AllBooksEdit/AllBooksEdit'
-
+import './AllBooks.css'
 interface AllBooksProps {
     token : string | null
 }
@@ -13,14 +13,6 @@ interface AllBooksState {
     bookToUpdate: book 
 }
 
-interface allBooks {
-    title: string,
-    author: string,
-    genre: string, 
-    summary: string, 
-    image: string, 
-    list: string
-}
 
 
 export interface book {

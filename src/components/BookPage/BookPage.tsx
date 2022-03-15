@@ -4,6 +4,7 @@ import BookPageTable from './BookPageTable/BookPageTable'
 import BookReviewCreate from './BookReview/BookReviewCreate/BookReviewCreate';
 import BookReviewEdit from './BookReview/BookReviewEdit/BookReviewEdit';
 import BookReviewTable from './BookReview/BookReviewTable';
+import './BookPage.css'
 interface BookPageProps {
 token: string | null 
 
@@ -38,20 +39,6 @@ class BookPage extends React.Component<BookPageProps, BookPageState> {
        }
    }
 
-//    FetchAllReviews = () => {
-//        const token = this.props.token 
-//        fetch("http://localhost:4000/review/", {
-//            method: 'GET',
-//            headers: new Headers ({
-//                'Content-Type': 'application/json',
-//                Authorization: `${token}`,
-//            })
-//        }) .then((res) => res.json())
-//        .then((reviewData) => {
-//            this.setState({reviews: reviewData})
-//            console.log(reviewData)
-//        })
-//    }
 
 
 bookHelper= (id: any)=> this.setState({pageId: id})

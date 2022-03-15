@@ -1,13 +1,10 @@
-import { stringify } from 'querystring';
+
 import * as React from 'react'
 import { Card, ListGroup, ListGroupItem, Button, ButtonGroup} from 'react-bootstrap'
 import { TabContent, TabPane, Nav, NavItem, NavLink, CardTitle, CardText, Row, Col } from 'reactstrap';
-import { List } from 'reactstrap';
 import classnames from 'classnames'
-import ToRead from './LibraryLists/ToRead';
-import { textChangeRangeIsUnchanged } from 'typescript';
-import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import {Link} from 'react-router-dom'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 interface MyLibraryTableProps {
     token: string | null
@@ -78,26 +75,31 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
             
          
             return (
-                <Card key={index} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={book.image} style={{width:'8rem'}} />
-                    <Card.Body>
-                        <Card.Title>{book.title}</Card.Title>
-                        <Card.Text>
-                            By: {book.author}
-                        </Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
-                        <ListGroupItem>genre: {book.genre}</ListGroupItem>
-                        <ListGroupItem><Button onClick={() => {deleteBook()}}>Delete</Button>
-                        <Button onClick={()=>{this.props.editUpdateBook(book); this.props.updateOn()}}>Update</Button>
-                        </ListGroupItem>
-                        <Link to={`/BookPage/${book.id}`}>
-                            Summary/Reviews
-                        </Link>
-
-                    </ListGroup>
-                    
-                </Card>
+              <Card style={{ width: '26rem' }}>
+              <Row className='no-gutters'>
+              <Col md={5} lg={5}  >
+              <Card.Img variant="top" src={book.image} />
+              </Col>
+              <Col>
+              <Card.Body>
+                <Card.Title>{book.title}</Card.Title>
+                <Card.Text>
+                  By: {book.author}
+                </Card.Text>
+                <ListGroup className="list-group-flush">
+                                    <ListGroupItem>genre: {book.genre}</ListGroupItem>
+                                    <Link to={`/BookPage/${book.id}`}>
+                                        Summary/Reviews
+                                    </Link>
+                                    <ListGroupItem><Button onClick={() => {deleteBook()}}>Delete</Button>
+                                    <Button onClick={()=>{this.props.editUpdateBook(book); this.props.updateOn()}}>Update</Button>
+                                    </ListGroupItem>
+                                </ListGroup>
+              </Card.Body>
+              </Col>
+              </Row>
+            </Card>
+            
             )
         })
     }
@@ -120,15 +122,22 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
             
          
             return (
-                <Card key={index} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={book.image} style={{width:'8rem'}} />
-                    <Card.Body>
-                        <Card.Title>{book.title}</Card.Title>
-                        <Card.Text>
-                            By: {book.author}
-                        </Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
+
+              <>
+         
+
+         <Card style={{ width: '25rem' }}>
+  <Row className='no-gutters'>
+  <Col md={5} lg={5}  >
+  <Card.Img variant="top" src={book.image} />
+  </Col>
+  <Col>
+  <Card.Body>
+    <Card.Title>{book.title}</Card.Title>
+    <Card.Text>
+      By: {book.author}
+    </Card.Text>
+    <ListGroup className="list-group-flush">
                         <ListGroupItem>genre: {book.genre}</ListGroupItem>
                         <Link to={`/BookPage/${book.id}`}>
                             Summary/Reviews
@@ -137,8 +146,18 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
                         <Button onClick={()=>{this.props.editUpdateBook(book); this.props.updateOn()}}>Update</Button>
                         </ListGroupItem>
                     </ListGroup>
-                    
-                </Card>
+  </Card.Body>
+  </Col>
+  </Row>
+</Card>
+
+
+
+
+
+
+  
+                </>
             )
         })
     

@@ -11,6 +11,7 @@ import Logout from "./logout/Logout"
 import Home from '../Home/Home'
 import MyLibrary from '../MyLibrary/MyLibrary';
 import BookPage from '../BookPage/BookPage';
+import './Navbar.css'
 
 interface SitebarProps {
     clearLocalStorage: () => void
@@ -34,9 +35,9 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
             <div>
 
          
-<Navbar bg="light" expand="lg">
+<Navbar className='bar'expand="lg">
   <Container>
-    <Navbar.Brand>Books</Navbar.Brand>
+    <Navbar.Brand>BookShelf</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
@@ -47,10 +48,10 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
           </Link>
         <Link to="/MyLibrary" style={{textDecoration: "none"}}>
        My Library
-
         </Link>
-               <Logout clearLocalStorage = {this.props.clearLocalStorage} />
+
       </Nav>
+               <Logout clearLocalStorage = {this.props.clearLocalStorage} />
     </Navbar.Collapse>
   </Container>
 </Navbar>

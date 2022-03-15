@@ -1,0 +1,9 @@
+.card {
+text-align: center;
+background-color: #FDFCE5;
+border: solid 1px;
+}
+
+div.list-group-item {
+    background-color: #FDFCE5;
+}

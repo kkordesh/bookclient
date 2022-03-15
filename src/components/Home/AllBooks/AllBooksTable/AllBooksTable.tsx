@@ -1,12 +1,12 @@
 import * as React from 'react'
 import AllBooks from '../AllBooks';
-import { Card, ListGroup, ListGroupItem,} from 'react-bootstrap'
+import { Card, ListGroup, ListGroupItem, CardGroup, Row, Col} from 'react-bootstrap'
 import { stringify } from 'querystring';
 import BookPage from '../../../BookPage/BookPage'
 import {Routes, Route, Link} from 'react-router-dom'
 
-
-import { NavItem, Nav, NavLink, TabContent, TabPane, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import './AllBooksTable.css'
+import { NavItem, Nav, NavLink, TabContent, TabPane, Button} from 'reactstrap';
 import classnames from 'classnames';
 import { getValue } from '@testing-library/user-event/dist/utils';
 
@@ -75,15 +75,19 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
 
             return (
 
-                <Card key={index} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={book.image} style={{width: '8rem'}}/>
-                    <Card.Body>
-                        <Card.Title>{book.title}</Card.Title>
-                        <Card.Text>
-                          By:  {book.author}
-                        </Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
+            
+<Card key={index} style={{ width: '25rem' }}>
+  <Row className='no-gutters'>
+  <Col md={5} lg={5}  >
+  <Card.Img variant="top" src={book.image} />
+  </Col>
+  <Col>
+  <Card.Body>
+    <Card.Title>{book.title}</Card.Title>
+    <Card.Text>
+      By: {book.author}
+    </Card.Text>
+    <ListGroup className="list-group-flush">
                         <ListGroupItem>genre: {book.genre}</ListGroupItem>
                         <Link to={`/BookPage/${book.id}`}>
                             Summary/Reviews
@@ -97,10 +101,14 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                        <Button onClick={()=>{this.props.editUpdateBook(book); this.props.updateOn()}}>Update</Button>
                      : null}   
                         </ListGroupItem>
-                    </ListGroup>
-                        
 
-                </Card>
+                    </ListGroup>
+  </Card.Body>
+  </Col>
+  </Row>
+</Card>
+
+
             )
         })
     
@@ -128,17 +136,20 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
             return (
 
               
-
-
-                <Card key={index} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={book.image} style={{width: '8rem'}}/>
-                    <Card.Body>
-                        <Card.Title>{book.title}</Card.Title>
-                        <Card.Text>
-                          By:  {book.author}
-                        </Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
+            
+<Card key={index} style={{ width: '26rem' }}>
+  
+  <Row>
+  <Col md={5} lg={5}  >
+  <Card.Img variant="top" src={book.image} />
+  </Col>
+  <Col>
+  <Card.Body>
+    <Card.Title>{book.title}</Card.Title>
+    <Card.Text>
+      By: {book.author}
+    </Card.Text>
+    <ListGroup className="list-group-flush">
                         <ListGroupItem>genre: {book.genre}</ListGroupItem>
                         <Link to={`/BookPage/${book.id}`}>
                             Summary/Reviews
@@ -146,17 +157,24 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                         <ListGroupItem>
                       {localStorage.getItem("isAdmin") === 'true' ?
                       <Button onClick={()=>{deleteBook()}}>Delete</Button>
-              
-                     : null }
+                      
+                      : null }
                      {localStorage.getItem("isAdmin") === 'true' ?
                        <Button onClick={()=>{this.props.editUpdateBook(book); this.props.updateOn()}}>Update</Button>
-                     : null}   
+                       : null}   
                         </ListGroupItem>
 
                     </ListGroup>
-                        
+  </Card.Body>
+  </Col>
+  </Row>
+</Card>
 
-                </Card>
+               
+
+
+
+
             )
         })
     
@@ -275,8 +293,10 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
               <TabContent activeTab={this.state.activeTab}>
                 <TabPane tabId="1">
                   <h4>All Books</h4>
+            
+                
                 {this.allBookMapper()}
-
+ 
                 </TabPane>
                 <TabPane tabId="2">
                   <h4>Action/Adventure</h4>
