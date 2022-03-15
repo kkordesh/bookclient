@@ -75,10 +75,10 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
             
          
             return (
-              <Card style={{ width: '26rem' }}>
+              <Card style={{ width: '26rem', margin: '15px' }}>
               <Row className='no-gutters'>
               <Col md={5} lg={5}  >
-              <Card.Img variant="top" src={book.image} />
+              <Card.Img variant="top" src={book.image}  style={{minHeight: '260px', paddingTop: '5px', paddingBottom: '5px'}}  />
               </Col>
               <Col>
               <Card.Body>
@@ -126,10 +126,10 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
               <>
          
 
-         <Card style={{ width: '25rem' }}>
+         <Card style={{ width: '26rem', margin: '15px'  }}>
   <Row className='no-gutters'>
   <Col md={5} lg={5}  >
-  <Card.Img variant="top" src={book.image} />
+  <Card.Img variant="top" src={book.image}  style={{minHeight: '260px', paddingTop: '5px', paddingBottom: '5px'}} />
   </Col>
   <Col>
   <Card.Body>
@@ -209,36 +209,43 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            <Row>
-              <Col sm="12">
-                <h4>My Library</h4>
+           
+                <h4 className='liblist'>My Library</h4>
+                <Row>
                 {this.myBookMapper()}
-              </Col>
+
+                
             </Row>
           </TabPane>
           <TabPane tabId="2">
+            
+             <h4 className='liblist'>Books To Read</h4>
             <Row>
-             <h4>Books To Read</h4>
-           
             {this.MyFilteredBookMapper("toread") }
+
             </Row>
+         
           </TabPane>
           <TabPane tabId="3">
-            <Row>
-             <h4>Currently Reading</h4>
+           
+             <h4 className='liblist'>Currently Reading</h4>
+             <Row>
             {this.MyFilteredBookMapper("currentlyreading")}
-            </Row>
+
+             </Row>
+          
           </TabPane>
           <TabPane tabId="4">
             <Row>
-             <h4>Completed</h4>
+             <h4 className='liblist'>Completed</h4>
+             <Row>
             {this.MyFilteredBookMapper("completed")}
+
+             </Row>
             </Row>
           </TabPane>
         </TabContent>
             
-
-                {/* {this.myBookMapper()} */}
             </div>
          );
     }

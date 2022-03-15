@@ -288,7 +288,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
             <Col xs="6" sm="6" md="10">
               <TabContent activeTab={this.state.activeTab}>
                 <TabPane tabId="1">
-                  <h4>All Books</h4>
+                  <h4 className='genre'>All Books</h4>
             
                 <Row>
                 {this.allBookMapper()}
@@ -297,7 +297,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
  
                 </TabPane>
                 <TabPane tabId="2">
-                  <h4>Action/Adventure</h4>
+                  <h4 className='genre'>Action/Adventure</h4>
 
                   <Row>
                 {this.AllFilteredBookMapper("Action/Adventure")}
@@ -305,7 +305,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                   </Row>
                 </TabPane>
                 <TabPane tabId="3">
-                  <h4>Classic</h4>
+                  <h4 className='genre'>Classic</h4>
 
                   <Row>
                 {this.AllFilteredBookMapper("Classic")}
@@ -313,7 +313,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                   </Row>
                 </TabPane>
                 <TabPane tabId="4">
-                  <h4>Detective/Mystery</h4>
+                  <h4 className='genre'>Detective/Mystery</h4>
 
                  <Row> 
                 {this.AllFilteredBookMapper("Detective/Mystery")}
@@ -321,7 +321,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                  </Row>
                 </TabPane>
                 <TabPane tabId="5">
-                  <h4>Fantasy</h4>
+                  <h4 className='genre'>Fantasy</h4>
 
                   <Row>
 
@@ -330,7 +330,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                   </Row>
                 </TabPane>
                 <TabPane tabId="6">
-                  <h4>Historical Fiction</h4>
+                  <h4 className='genre'>Historical Fiction</h4>
 
                   <Row>
                 {this.AllFilteredBookMapper("Historical Fiction")}
@@ -338,7 +338,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                   </Row>
                 </TabPane>
                 <TabPane tabId="7">
-                  <h4>Horror/Thriller</h4>
+                  <h4 className='genre'>Horror/Thriller</h4>
 
                   <Row>
                 {this.AllFilteredBookMapper("Horror/Thriller")}
@@ -346,7 +346,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                   </Row>
                 </TabPane>
                 <TabPane tabId="8">
-                  <h4>Non-Fiction</h4>
+                  <h4 className='genre'>Non-Fiction</h4>
 
                   <Row>
                 {this.AllFilteredBookMapper("Non-Fiction")}
@@ -354,7 +354,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                   </Row>
                 </TabPane>
                 <TabPane tabId="9">
-                  <h4>Romance</h4>
+                  <h4 className='genre'>Romance</h4>
 
                   <Row>
                 {this.AllFilteredBookMapper("Romance")}
@@ -362,7 +362,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                   </Row>
                 </TabPane>
                 <TabPane tabId="10">
-                  <h4>Sci-Fi</h4>
+                  <h4 className='genre'>Sci-Fi</h4>
                   <Row>
 
                 {this.AllFilteredBookMapper("Sci-Fi")}

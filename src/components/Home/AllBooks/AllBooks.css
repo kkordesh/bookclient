@@ -23,7 +23,7 @@ div.card {
     padding-top: 20%;
 }
  
-h4 {
+h4.genre {
     margin-left: 35%;
     font-family: roboto roboto-serif;
     text-decoration: underline 1.5px;

@@ -1,9 +1,9 @@
 .card {
 text-align: center;
-background-color: #FDFCE5;
+background-color: rgb(253, 252, 229, .8);
 border: solid 1px;
 }
 
 div.list-group-item {
-    background-color: #FDFCE5;
+    background-color:  rgb(253, 252, 229, .8);
 }
