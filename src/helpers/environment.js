@@ -6,8 +6,7 @@ switch (window.location.hostname) {
     break;
 
     case 'bookshelfclient.herokuapp.com':
-    APIURL = 'https://bookshelfclient.herokuapp.com';
-
+    APIURL = "https://bookshelfserver.herokuapp.com/";
 }
 
 export default APIURL;
