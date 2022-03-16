@@ -5,14 +5,16 @@ import {
     Navbar,
     Container, 
     Nav,
+    NavItem,
     
 } from 'react-bootstrap'
+import {Row, Col} from 'reactstrap'
 import Logout from "./logout/Logout"
 import Home from '../Home/Home'
 import MyLibrary from '../MyLibrary/MyLibrary';
 import BookPage from '../BookPage/BookPage';
 import './Navbar.css'
-
+import logo6 from '../assets/logo7.png'
 interface SitebarProps {
     clearLocalStorage: () => void
     token: string | null
@@ -33,24 +35,40 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
 
          
 <Navbar className='bar'expand="lg">
-  <Container>
-    <Navbar.Brand>BookShelf</Navbar.Brand>
+  <Container style={{marginRight:'0%'}}>
+    
+        <Col md='2'> 
+    <Navbar.Brand>
+      <img id='logo' src={logo6} style={{ margin: '0%'}}/>
+    </Navbar.Brand>
+        </Col>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="me-auto">
-          <Link to='/'>
+          
+      <Nav id='homelink' >
+        
+          <Link to='/' style={{textDecoration: "underline"}}>
 
         Home
 
           </Link>
-        <Link to="/MyLibrary" style={{textDecoration: "none"}}>
+        
+      </Nav>
+      <Nav id='liblink'>
+
+        <Link to="/MyLibrary" style={{textDecoration: "underline"}}>
        My Library
         </Link>
-
       </Nav>
-               <Logout clearLocalStorage = {this.props.clearLocalStorage} />
+     
+         
+            
     </Navbar.Collapse>
+    
+
   </Container>
+             
+               <Logout clearLocalStorage = {this.props.clearLocalStorage} />
 </Navbar>
 
             <div className='NavbarRoute'>

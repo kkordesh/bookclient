@@ -6,11 +6,25 @@ div.container {
     margin-left: 0%
 }
 
-.me-auto {
- padding-left: 10%;
- margin: 0%;
+
+#homelink  {
+    margin-right: 5%;
+    margin-top:3%;
+    font-size: 15pt;
+}
+
+#liblink {
+    margin-top:3%;
+    font-size: 15pt;
+    
 }
 
 a {
-    color: #4c4f52;
+    color: #a5a8ac;
 }
+
+#logo {
+    width: 100px;
+    height: 100px;
+}
+

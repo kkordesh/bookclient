@@ -4,13 +4,17 @@
     background-color: transparent;
     border-radius: 10%;
     border: solid 1px;
-    font-family: roboto-serif;
+    font-family: 'Roboto Serif', serif;
     transition-duration: 0.4s;
-    float: right;
+    margin-left: 400%;
+    margin-top: 70%;
+    color: gray;
+   
     
 }
 
 #logout:hover {
+
     background-color: transparent;
     background-color: #D7E9F7;
 }
