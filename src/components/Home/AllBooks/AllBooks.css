@@ -29,3 +29,17 @@ h4.genre {
     text-decoration: underline 1.5px;
     color: #4c4f52;
 }
+
+#allbooksimgedit {
+margin-left: 35%;
+}
+
+#editsubmitbtn {
+margin-left: 80%;
+}
+
+textarea.form-control {
+    width: 60%;
+    margin-left: 20%;
+    
+}

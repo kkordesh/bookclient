@@ -79,6 +79,7 @@ class BookReviewEdit extends React.Component<BookReviewEditProps, BookReviewEdit
                             <FormGroup>
                                 <Label for="rating"/>
                                 <Input id="rating" type="select" value={this.state.editRating} placeholder='rating' onChange={(e) => this.setState({editRating: e.target.value})}>
+                                <option selected={true} disabled={true}value={''}>Select Rating</option>
                                     <option value={1}>1</option>
                                     <option value={2}>2</option>
                                     <option value={3}>3</option>

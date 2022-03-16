@@ -5,3 +5,7 @@ h3 {
     color: #eeb661; 
     
   }
+
+  #pagetable {
+    float: left;
+  }

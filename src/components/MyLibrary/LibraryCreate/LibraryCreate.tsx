@@ -87,22 +87,23 @@ class LibraryCreate extends React.Component<LibraryCreateProps, LibraryCreateSta
     render() { 
         return (  
             <div>
-                <Button onClick={this.togglePopup}>Log a Book!</Button>
+                <Button id='createbtn'onClick={this.togglePopup}>Log a Book!</Button>
                 <Modal isOpen={this.state.modal} toggle={this.togglePopup}>
        <ModalHeader>Log a Book!</ModalHeader>
        <ModalBody>
        <Form onSubmit={this.handleSubmit}>
            <FormGroup>
                <Label htmlFor='title'/>
-               <Input name='title' value={this.state.title} placeholder='Title'onChange={(e)=> this.setState({title: e.target.value})}/>
+               <Input required name='title' value={this.state.title} placeholder='Title'onChange={(e)=> this.setState({title: e.target.value})}/>
            </FormGroup>
            <FormGroup>
                <Label htmlFor='author'/>
-               <Input name='author' value={this.state.author} placeholder='Author'onChange={(e)=> this.setState({author: e.target.value})}/>
+               <Input required name='author' value={this.state.author} placeholder='Author'onChange={(e)=> this.setState({author: e.target.value})}/>
            </FormGroup>
            <FormGroup>
                <Label htmlFor='genre'/>
-               <Input type='select' name='genre' value={this.state.genre} onChange={(e)=> this.setState({genre: e.target.value})}>
+               <Input required type='select' name='genre' value={this.state.genre} onChange={(e)=> this.setState({genre: e.target.value})}>
+               <option selected={true} disabled={true}value={''}>Select Genre</option>
                    <option value="Action/Adventrue">Action/Adventure</option>
                    <option value="Classic">Classic</option>
                    <option value="Detective/Mystery">Detective/Mystery</option>
@@ -116,18 +117,19 @@ class LibraryCreate extends React.Component<LibraryCreateProps, LibraryCreateSta
            </FormGroup>
            <FormGroup>
                <Label htmlFor='summary'/>
-               <Input name='summary' placeholder='summary'value={this.state.summary} onChange={(e)=> this.setState({summary: e.target.value})}/>
+               <Input required type='textarea' rows={5} name='summary' placeholder='summary'value={this.state.summary} onChange={(e)=> this.setState({summary: e.target.value})}/>
            </FormGroup>
            <FormGroup>
            <Label htmlFor='list'/>
-               <Input type='select' name='list' value={this.state.list} onChange={(e)=> this.setState({list: e.target.value})}>
+               <Input required type='select' name='list' value={this.state.list} onChange={(e)=> this.setState({list: e.target.value})}>
+               <option selected={true} disabled={true}value={''}>Select List</option>
                    <option value="toread">To Read</option>
                    <option value="currentlyreading">Currently Reading</option>
                    <option value="completed">Completed</option>
                 </Input>
            </FormGroup>
                 <FormGroup>
-                    <h1>Upload image</h1>
+                    <h1 id='uploadimgtitle'>Upload image</h1>
                     <Label htmlFor='image'/>
                     <Input type="file" name='file'  placeholder="Upload Image Here" onChange={this.UploadImage}/>
                     <br/>

@@ -208,6 +208,7 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
             </NavLink>
           </NavItem>
         </Nav>
+       
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
            
@@ -246,6 +247,7 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
             </Row>
           </TabPane>
         </TabContent>
+
             
             </div>
          );

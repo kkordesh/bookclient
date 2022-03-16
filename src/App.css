@@ -8,9 +8,11 @@
 
 h1 {
   padding-top: 1%;
+  height: 80px;
   font-style: italic;
   color: #eeb661; 
   padding-left: 1%;
+  width: fit-content;
   
 }
 

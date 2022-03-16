@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import {book} from '../AllBooks'
 import APIURL from '../../../../helpers/environment'
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 interface AllBooksEditProps {
     bookToUpdate: book;
     updateOff: Function;
@@ -71,7 +72,7 @@ class AllBooksEdit extends React.Component<AllBooksEditProps, AllBooksEditState>
                  genre: this.state.editGenre,
                  summary:this.state.editSummary,
                  list: this.state.editList,
-                 Image: this.state.editImage, 
+                 image: this.state.editImage, 
              }),
              headers: new Headers ({
                  'Content-Type': 'application/json',
@@ -97,7 +98,7 @@ class AllBooksEdit extends React.Component<AllBooksEditProps, AllBooksEditState>
                      <ModalBody>
                          <Form onSubmit = {(e) => this.bookUpdate(e)} >
                         <FormGroup>
-                            <Label for="title">Title</Label>
+                            <Label for="title"/>
                             <Input id="title" type="text" name="title" value={this.state.editTitle} placeholder="title" onChange={(e) => this.setState({editTitle: e.target.value})} />
                         </FormGroup>
                         <FormGroup>
@@ -107,6 +108,7 @@ class AllBooksEdit extends React.Component<AllBooksEditProps, AllBooksEditState>
            <FormGroup>
                <Label htmlFor='genre'/>
                <Input type='select' name='genre' value={this.state.editGenre} onChange={(e)=> this.setState({editGenre: e.target.value})}>
+                   <option selected={true} disabled={true}value={''}>Select Genre</option>
                    <option value="Action/Adventrue">Action/Adventure</option>
                    <option value="Classic">Classic</option>
                    <option value="Detective/Mystery">Detective/Mystery</option>
@@ -120,25 +122,26 @@ class AllBooksEdit extends React.Component<AllBooksEditProps, AllBooksEditState>
            </FormGroup>
            <FormGroup>
                <Label htmlFor='summary'/>
-               <Input name='summary' placeholder='summary'value={this.state.editSummary} onChange={(e)=> this.setState({editSummary: e.target.value})}/>
+               <Input type='textarea' rows={5} name='summary' placeholder='summary'value={this.state.editSummary} onChange={(e)=> this.setState({editSummary: e.target.value})}/>
            </FormGroup>
            <FormGroup>
            <Label htmlFor='list'/>
                <Input type='select' name='list' value={this.state.editList} onChange={(e)=> this.setState({editList: e.target.value})}>
+               <option selected={true} disabled={true}value={''}>Select List</option>
                    <option value="toread">To Read</option>
                    <option value="currentlyreading">Currently Reading</option>
                    <option value="completed">Completed</option>
                 </Input>
            </FormGroup>
            <FormGroup>
-               <h3>Upload Image</h3>
+               <h3 id='uploadimgtitle'>Upload Image</h3>
                <Label htmlFor='image'/>
                <Input type='file' name='file' placeholder='Upload Image' onChange={this.UploadImage}/>
                <br/>
-               {this.state.loading? (<h3>Loading...</h3>) : <img src={this.state.editImage} style={{width: '8rem'}} alt={this.state.editTitle}/>}
+               {this.state.loading? (<h3>Loading...</h3>) : <img id='allbooksimgedit'src={this.state.editImage} style={{width: '8rem'}} alt={this.state.editTitle}/>}
            </FormGroup>
 
-                        <Button type="submit"> Submit </Button>
+                        <Button id='editsubmitbtn' type="submit"> Submit </Button>
                          </Form>
                      </ModalBody>
                  </Modal>

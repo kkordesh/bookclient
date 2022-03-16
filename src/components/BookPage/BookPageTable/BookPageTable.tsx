@@ -70,17 +70,17 @@ class BookPageTable extends React.Component<BookPageTableProps, BookPageTableSta
         BookMap = () => {
             return this.state.book.map((book: getThisBookApi, index) => {
                 return (
-                    <div className='col-4'>
+                    <div>
                         <h1>{book.title}</h1>
                         <h3>by: {book.author}</h3>
-                        <Row>
-                        <Col className="col-6">
+                        
+                        
                     <img src={book.image} alt={book.title}/>
-                    </Col>
-                    <Col className='col-6'>
+                   
+                   
                     <p className='summary'>{book.summary}</p>
-                    </Col>
-                        </Row>
+                 
+                        
                     <h6>Posted by: {book.username}</h6>
                     </div>
                 )

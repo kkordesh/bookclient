@@ -6,6 +6,7 @@ import BookReviewEdit from './BookReview/BookReviewEdit/BookReviewEdit';
 import BookReviewTable from './BookReview/BookReviewTable';
 import APIURL from '../../helpers/environment'
 import './BookPage.css'
+import {Col} from 'reactstrap'
 interface BookPageProps {
 token: string | null 
 
@@ -101,10 +102,15 @@ render() {
         return ( 
             <div>
                 <BookIdHelper pageId={this.bookHelper}/>
-               
+               <Col id='pagetable'md={3}>
                 {this.state.pageId.length> 0 ?
                 <BookPageTable bookfetcher={this.bookfetcher} book={this.state.book} pageId={this.state.pageId} token={this.props.token}/> : <></>
                     }   
+               
+               </Col>
+
+               <Col id='reviewtable'md={9} style={{paddingLeft: '20%'}}>
+               
                 <BookReviewCreate pageId={this.state.pageId} token={this.props.token} />
                 {this.state.pageId.length>0 ?  
                 <BookReviewTable FetchTheseReviews={this.FetchTheseReviews} token={this.props.token} pageId={this.state.pageId} updateOn={this.updateOn} editUpdateReview={this.editUpdateReview} reviews={this.state.reviews} /> : <></>   
@@ -114,6 +120,7 @@ render() {
                 ) : (<div></div>)
 
                 }
+               </Col>
             </div>
           );
     }

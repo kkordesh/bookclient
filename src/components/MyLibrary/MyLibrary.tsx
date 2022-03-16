@@ -5,7 +5,7 @@ import APIURL from '../../helpers/environment';
 import LibraryCreate from './LibraryCreate/LibraryCreate';
 import MyLibraryTable from './LibraryTable/MyLibraryTable';
 import LibraryEdit from './LibraryEdit/LibraryEdit'
-
+import {Col, Row} from 'react-bootstrap'
 interface MyLibraryProps {
     token: string | null
 }
@@ -69,7 +69,10 @@ class MyLibrary extends React.Component<MyLibraryProps, MyLibraryState> {
     render() { 
         return ( 
             <div>
-                <h1>{localStorage.getItem("userName")}'s Library</h1>
+                <Col id='titlecol' xs={6} md={4}>
+                
+                <h1 id='usertitle'>{localStorage.getItem("userName")}'s Library</h1>
+                </Col>
                <LibraryCreate token={this.props.token} FetchMyBooks={this.FetchMyBooks}/> 
                <MyLibraryTable token={this.props.token} FetchMyBooks={this.FetchMyBooks} myBooks={this.state.myBooks} updateOn={this.updateOn} editUpdateBook={this.editUpdateBook}/>
                 {this.state.updateActive ? (

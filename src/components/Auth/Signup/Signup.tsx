@@ -44,17 +44,17 @@ class Signup extends React.Component<SignupProps, SignupState> {
             <Form onSubmit={this.handleSubmit}  className='signupForm'>
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
-                    <Input onChange={(e) => this.setState({email: e.target.value})} placeholder="type email"name="email" value={this.state.email} required/>
+                    <Input required type='email' onChange={(e) => this.setState({email: e.target.value})} placeholder="type email"name="email" value={this.state.email} />
                 </FormGroup>
 
                 <FormGroup>
                     <Label htmlFor="username">username</Label>
-                    <Input onChange={(e) => this.setState({username: e.target.value})} placeholder="type username"name="lastName" value={this.state.username} required/>
+                    <Input required minLength={5}onChange={(e) => this.setState({username: e.target.value})} placeholder="type username"name="lastName" value={this.state.username} />
                 </FormGroup>
 
                 <FormGroup>
                     <Label htmlFor="password">password</Label>
-                    <Input onChange={(e) => this.setState({password: e.target.value})} placeholder="type password"name="email" value={this.state.password} required/>
+                    <Input type='password' required minLength={5}onChange={(e) => this.setState({password: e.target.value})} placeholder="type password"name="email" value={this.state.password} />
                 </FormGroup>
         
 

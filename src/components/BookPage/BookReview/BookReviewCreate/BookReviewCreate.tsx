@@ -83,17 +83,17 @@ refreshPage =() => {
                 <Form onSubmit = {this.handleSubmit} >
                     <FormGroup>
                         <Label htmlFor="title"/>
-                        <Input name='title' value={this.state.title} placeholder='Title'onChange={(e)=> this.setState({title: e.target.value})}/>
+                        <Input required name='title' value={this.state.title} placeholder='Title'onChange={(e)=> this.setState({title: e.target.value})}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="review"/>
-                        <Input name='review' value={this.state.review} placeholder='Review'onChange={(e)=> this.setState({review: e.target.value})}/> 
+                        <Input required name='review' value={this.state.review} placeholder='Review'onChange={(e)=> this.setState({review: e.target.value})}/> 
                        
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="rating"/>
-                        <Input type='select' name='rating' value={this.state.rating} placeholder='Review'onChange={(e)=> this.setState({rating: e.target.value})}>
-             
+                        <Input required type='select' name='rating' value={this.state.rating} placeholder='Review'onChange={(e)=> this.setState({rating: e.target.value})}>
+                        <option selected={true} disabled={true}value={''}>Select Rating</option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>
                         <option value={3}>3</option>
