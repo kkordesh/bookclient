@@ -6,6 +6,75 @@ h3 {
     
   }
 
-  #pagetable {
-    float: left;
-  }
+
+
+ #reviewall {
+   margin: 2%;
+   border: #6d7175 solid 1px;
+   padding: 15px;
+   background-color: rgb(253, 252, 229, .8) ;
+ }
+
+
+ #reviewuser {
+    font-size: large;
+    color: #eeb661;
+ }
+
+ #reviewtitle {
+   color: #6d7175
+ }
+
+ #reviewreview {
+   color: #6d7175;
+ }
+
+ #reviewlinethree {
+   border-top: #eeb661 double;
+   border-bottom: #eeb661 double;
+
+ }
+
+ #bookpagetable {
+   margin-left: 15%;
+ }
+
+ #justbooktitle {
+   margin-top: 2%;
+   margin-left: 8%;
+ }
+ #justsummary {
+   border-top: double #D7E9F7;
+   border-bottom: double #D7E9F7
+ }
+
+
+
+ #leavereviewtitle {
+   color: #eeb661;
+   margin-left: 20%;
+   margin-bottom: 0;
+   font-style: italic;
+ }
+
+ #reviewform {
+   background-color: #D7E9F7;
+   width:60%;
+   margin-left: 20%;
+   padding: 1%;
+   border-radius: 2%;
+ }
+
+ #reviewbtn {
+   margin-left: 40%;
+ }
+
+ #allreviewtable {
+   margin-left: 12%;
+   margin-top: 2%;
+ }
+
+ #allreviewstitle {
+   text-align: center;
+   margin-left: 35%
+ }

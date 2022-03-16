@@ -73,21 +73,19 @@ refreshPage =() => {
         })
     }
 
-    componentDidMount (){
-       // this.FetchTheseReviews()
-    }
+
     render() { 
         return ( 
-            <div>
-                <h3>Leave a Review!</h3> 
-                <Form onSubmit = {this.handleSubmit} >
+            <div >
+                <h1 id='leavereviewtitle'>Leave a Review!</h1> 
+                <Form id='reviewform'onSubmit = {this.handleSubmit} >
                     <FormGroup>
                         <Label htmlFor="title"/>
                         <Input required name='title' value={this.state.title} placeholder='Title'onChange={(e)=> this.setState({title: e.target.value})}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="review"/>
-                        <Input required name='review' value={this.state.review} placeholder='Review'onChange={(e)=> this.setState({review: e.target.value})}/> 
+                        <Input type='textarea'required name='review' value={this.state.review} placeholder='Review'onChange={(e)=> this.setState({review: e.target.value})}/> 
                        
                     </FormGroup>
                     <FormGroup>
@@ -104,7 +102,7 @@ refreshPage =() => {
                             
                              </Input>
                     </FormGroup>
-                    <Button type='submit'>Click to Submit</Button>
+                    <Button id='reviewbtn' type='submit'>Click to Submit</Button>
                 </Form>
             </div>
          );

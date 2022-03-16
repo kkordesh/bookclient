@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './BookPageTable.css'
-import {Row, Col} from 'react-bootstrap'
+import {Row, Col, Container} from 'reactstrap'
 import APIURL from '../../../helpers/environment'
 interface BookPageTableProps {
     pageId: any
@@ -70,18 +70,23 @@ class BookPageTable extends React.Component<BookPageTableProps, BookPageTableSta
         BookMap = () => {
             return this.state.book.map((book: getThisBookApi, index) => {
                 return (
-                    <div>
-                        <h1>{book.title}</h1>
-                        <h3>by: {book.author}</h3>
-                        
-                        
-                    <img src={book.image} alt={book.title}/>
-                   
-                   
-                    <p className='summary'>{book.summary}</p>
-                 
-                        
-                    <h6>Posted by: {book.username}</h6>
+      
+                    <div id='bookpagetable'>
+                        <Container>
+                        <h1 id='justbooktitle'>{book.title}</h1>
+                        </Container>
+                        <Row id='imageandsummary' style={{width: ''}}>
+                            <Col md='5'>
+                            <img src={book.image} style={{width: '60%', marginLeft: '30%'}}/>
+                            </Col>
+                            <Col> 
+                            <p id='justsummary'>{book.summary}</p>
+                            <Row>
+                                <p>posted by: {book.username}</p>
+                            </Row>
+                            </Col>
+                        </Row>
+                      
                     </div>
                 )
             })
