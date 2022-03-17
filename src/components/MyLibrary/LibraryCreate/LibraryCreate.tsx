@@ -104,7 +104,7 @@ class LibraryCreate extends React.Component<LibraryCreateProps, LibraryCreateSta
                <Label htmlFor='genre'/>
                <Input required type='select' name='genre' value={this.state.genre} onChange={(e)=> this.setState({genre: e.target.value})}>
                <option selected={true} disabled={true}value={''}>Select Genre</option>
-                   <option value="Action/Adventrue">Action/Adventure</option>
+                   <option value="Action/Adventure">Action/Adventure</option>
                    <option value="Classic">Classic</option>
                    <option value="Detective/Mystery">Detective/Mystery</option>
                    <option value="Fantasy">Fantasy</option>
