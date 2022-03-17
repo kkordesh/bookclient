@@ -171,7 +171,7 @@ class MyLibraryTable extends React.Component<MyLibraryTableProps, MyLibraryTable
        console.log(this.props.myBooks)
         return ( 
             <div>
-                     <Nav tabs>
+                     <Nav id='usernav'tabs>
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '1' })}

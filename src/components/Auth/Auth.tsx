@@ -30,7 +30,10 @@ class Auth extends React.Component<AuthProps, AuthState> {
 
         return ( 
             <div id='loginpage' className='overlay'>
+               
+
                 <h1 id='welcometitle'>Welcome to BookShelf</h1>
+           
                 <h2>Sign up or log in to get started!</h2>
                 { this.state.LoginVisible === true ? (
                     <Login updateLocalStorage={this.props.updateLocalStorage}/>
@@ -39,7 +42,7 @@ class Auth extends React.Component<AuthProps, AuthState> {
                         <Signup updateLocalStorage={this.props.updateLocalStorage}/>
                         )}
                 <br />
-                    <Button id='togbtn'onClick={(e) => this.setState({LoginVisible: !this.state.LoginVisible})}>Toggle LogIn/SignUp</Button>
+                        <Button id='togbtn'onClick={(e) => this.setState({LoginVisible: !this.state.LoginVisible})}>Toggle LogIn/SignUp</Button>
                        
             </div>
          );

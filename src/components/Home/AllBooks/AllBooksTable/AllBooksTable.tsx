@@ -72,15 +72,15 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
             return (
 
             
-<Card key={index} style={{width: '26rem', margin: '15px'}}>
-  <Row className='no-gutters'>
+<Card key={index} style={{width: '23rem', margin: '15px'}}>
+  <Row style={{marginTop: '20px'}}>
   <Col md={5} lg={5}  >
-  <Card.Img variant="top" src={book.image} style={{minHeight: '260px', paddingTop: '5px', paddingBottom: '5px' }}/>
+  <Card.Img variant="top" src={book.image} style={{minHeight: '80%', paddingTop: '2%', paddingBottom: '2%' }}/>
   </Col>
   <Col>
   <Card.Body className='cardbody'>
     <Card.Title>{book.title}</Card.Title>
-    <Card.Text>
+    <Card.Text style={{marginBottom: '5px'}}>
       By: {book.author}
     </Card.Text>
     <ListGroup className="list-group-flush">
@@ -133,16 +133,16 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
 
               
             
-<Card key={index} style={{ width: '26rem', margin: '15px' }}>
+<Card key={index} style={{ width: '23rem', margin: '15px'  }}>
   
-  <Row>
+  <Row style={{marginTop: '20px'}}>
   <Col md={5} lg={5}  >
-  <Card.Img variant="top" src={book.image} style={{minHeight: '260px', paddingTop: '5px', paddingBottom: '5px'}} />
+  <Card.Img variant="top" src={book.image} style={{minHeight: '80%', maxHeight: '100%', paddingTop: '2%', paddingBottom: '2%'}} />
   </Col>
   <Col>
   <Card.Body className='cardbody'>
     <Card.Title>{book.title}</Card.Title>
-    <Card.Text>
+    <Card.Text style={{marginBottom: '5px'}}>
       By: {book.author}
     </Card.Text>
     <ListGroup className="list-group-flush">
@@ -285,7 +285,7 @@ class AllBooksTable extends React.Component<AllBooksTableProps, AllBooksTableSta
                 </NavItem>
               </Nav>
             </Col>
-            <Col xs="6" sm="6" md="10">
+            <Col xs="6" sm="8" md="10">
               <TabContent activeTab={this.state.activeTab}>
                 <TabPane tabId="1">
                   <h4 className='genre'>All Books</h4>

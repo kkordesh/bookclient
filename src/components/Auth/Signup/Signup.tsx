@@ -41,7 +41,7 @@ class Signup extends React.Component<SignupProps, SignupState> {
         return ( 
             <div>
                   <h1 id='signuptitle'>Sign Up</h1>
-            <Form onSubmit={this.handleSubmit}  className='signupForm'>
+            <Form  onSubmit={this.handleSubmit}  className='signupForm'>
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
                     <Input required type='email' onChange={(e) => this.setState({email: e.target.value})} placeholder="type email"name="email" value={this.state.email} />

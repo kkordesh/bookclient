@@ -7,6 +7,9 @@ div.list-group-item{
     color: #4c4f52;
     text-decoration: underline 1.5px; 
     text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-style: italic;
 }
 
 #createbtn {
@@ -36,3 +39,8 @@ div.modal-header {
    background-color: #D7E9F7;
    color: #6d7175;
 }
+
+#usernav {
+    padding-top: 35px;
+    
+ }

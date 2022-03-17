@@ -67,8 +67,8 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
     
 
   </Container>
-             
                <Logout clearLocalStorage = {this.props.clearLocalStorage} />
+             
 </Navbar>
 
             <div className='NavbarRoute'>

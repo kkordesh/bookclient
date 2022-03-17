@@ -19,7 +19,7 @@ body {
 }
 
 .loginForm {
-    width: 25%;
+    width: 450px;
     
     text-align: center;
     margin-left: 13%;
@@ -30,9 +30,9 @@ body {
 }
 
 h1#welcometitle {
-font-size: 60pt;
+font-size: 5vw;
 margin-left: 6%;
-    
+margin-bottom: 3%;   
 }
 
 h2 {
@@ -56,7 +56,7 @@ input.form-control {
 }
 
 .signupForm {
-    width: 25%;
+    width: 450px;
     height: 40%;
     text-align: center;
     margin-left: 13%;
@@ -67,5 +67,5 @@ input.form-control {
 }
 
 #togbtn {
-    margin-left: 21%;
+    margin-left:390px;
 }

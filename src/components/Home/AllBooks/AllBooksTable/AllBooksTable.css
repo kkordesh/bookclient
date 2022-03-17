@@ -2,6 +2,7 @@
 text-align: center;
 background-color: rgb(253, 252, 229, .8);
 border: solid 1px;
+max-height: fit-content;
 }
 
 div.list-group-item {

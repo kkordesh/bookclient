@@ -113,17 +113,22 @@ render() {
                 </Col>
                 </Row>
              
-
+                <Row>
+                    <Col md='2'/>
+                   <Col md='8'>
                 {this.state.pageId.length>0 ? 
                
-                <BookReviewTable  FetchTheseReviews={this.FetchTheseReviews} token={this.props.token} pageId={this.state.pageId} updateOn={this.updateOn} editUpdateReview={this.editUpdateReview} reviews={this.state.reviews} /> : <></>   
+               <BookReviewTable  FetchTheseReviews={this.FetchTheseReviews} token={this.props.token} pageId={this.state.pageId} updateOn={this.updateOn} editUpdateReview={this.editUpdateReview} reviews={this.state.reviews} /> : <></>   
             } 
                 {this.state.updateActive ? (
                     <BookReviewEdit FetchTheseReviews={this.FetchTheseReviews} token={this.props.token} reviewToUpdate={this.state.reviewToUpdate} updateOff={this.updateOff}/>
-                ) : (<div></div>)
-
+                    ) : (<div></div>)
+                    
                 }
                
+                </Col>
+                <Col md='2'/>
+                </Row>
             </div>
           );
     }
