@@ -66,6 +66,11 @@ input.form-control {
     border: solid 1px #999999
 }
 
+#makebuttonmove {
+    width: 60%;
+}
+
 #togbtn {
-    margin-left:390px;
+    margin-left: 28%;
+  
 }

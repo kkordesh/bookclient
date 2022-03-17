@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Login from './Login/Login';
 import Signup from './Signup/Signup'
-import {Button} from 'reactstrap'
+import {Button, Col, Row} from 'reactstrap'
 import './Auth.css'
 
 
@@ -35,6 +35,8 @@ class Auth extends React.Component<AuthProps, AuthState> {
                 <h1 id='welcometitle'>Welcome to BookShelf</h1>
            
                 <h2>Sign up or log in to get started!</h2>
+                <div id='makebuttonmove'>
+
                 { this.state.LoginVisible === true ? (
                     <Login updateLocalStorage={this.props.updateLocalStorage}/>
                     
@@ -42,8 +44,12 @@ class Auth extends React.Component<AuthProps, AuthState> {
                         <Signup updateLocalStorage={this.props.updateLocalStorage}/>
                         )}
                 <br />
+  
+          
                         <Button id='togbtn'onClick={(e) => this.setState({LoginVisible: !this.state.LoginVisible})}>Toggle LogIn/SignUp</Button>
-                       
+     
+                        </div>
+             
             </div>
          );
     }
